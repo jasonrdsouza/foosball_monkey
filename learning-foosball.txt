@@ -1,0 +1,622 @@
+From: uyeyama@hawaii.edu (Rob Uyeyama)
+Newsgroups: rec.sport.table-soccer,alt.sport.foosball,alt.answers,rec.answers,news.answers
+Subject: rec.sport.table-soccer FAQ4 - Learning Foosball - 1994/05/14
+Followup-To: rec.sport.table-soccer
+Organization: University of Hawaii
+Approved: news-answers-request@MIT.EDU
+Reply-To: uyeyama@hawaii.edu (Rob Uyeyama)
+Summary: A guide for beginners and intermediates.  Includes
+ fundamentals of play, what to practice, and for intermediates,
+ strategies on how to become competitive for tournaments.
+Keywords: foosball, table-soccer, table-football, bebefoot
+
+Archive-name: table-soccer/learning-foosball
+Rec-sport-table-soccer-archive-name: learning-foosball
+Alt-sport-foosball-archive-name: learning-foosball
+Posting-Frequency: monthly
+Last-modified: 1995/12/26
+URL: ftp://conrad.harvard.edu/pub/foosball
+Version: 1.2a
+
+
+**************************************
+REC.SPORT.TABLE-SOCCERK  FAQ 4 v1.2a
+Guide for Beginners and Intermediates
+LEARNING FOOSBALL
+*************************************
+
+(C) Copyright 1995 Robert Uyeyama. 
+Permission granted to distribute free, freely. Rob Uyeyama (uyeyama@hawaii.edu)
+
+The latest version of this file is available at the table-soccer FTP
+site at conrad.harvard.edu in /pub/table-soccer/foosball
+
+
+____________
+Introduction
+____________
+
+For whom is this file written?  This essay is is intended for a 
+wide variety of players; there are three separate chapters for 
+three arbitrarily selected levels of play of people who have 
+little or no experience in competition.  This ranges from the 
+absolute-beginner to someone who can be quite good, but not 
+"tournament-hardened".
+
+This file is not intended to limit postings to RSTS.  If you 
+have further questions, please feel free post.  We're a friendly 
+bunch.  :-)
+
+The three chapters are as follows:
+    Chapter One is for those who have essentially _never_ played 
+before, or are just learning how to play.
+    Chapter Two is for those who have played for several months 
+to several years, but only on a casual level-- for these 
+people, they rarely have considered practicing, shots are 
+impressive only once in a while, but they certainly haven't 
+taken the game strategy seriously... until now... and wish to 
+learn more. 
+    Chapter Three is a short list of advice for those who have 
+played seriously, even for several years, but only on a very 
+local level.  This would include bar-players and 
+college-players who are considered among the best at their 
+respective home ground, but who have not had any "big" 
+tournament experience.
+
+Introduction:
+____________
+A fact which may come as a surprise (a welcome one) to many is 
+that foosball/table-soccer is played on a competitive (read: 
+"professional") level.  There are several "tours" which exist, 
+and these tours organize various regional, national, and even 
+"world" championships!  For example, in the United States, there 
+is the well-established United States Table Soccer Association 
+(USTSA) and the nascent American Table Soccer Federation (ATSF).  
+These organizations are manufacturer-based, in other words they 
+are not player organizations, but rather promoting organs 
+sponsored by the table manufacturers: USTSA for Tornado (303 
+933-1170), and ATSF for Dynamo/Striker (800 527-6054).  Contact 
+these phone numbers for more information on regular 
+draw-your-partner events in your area, as well as for upcoming 
+national and regional events-- go see tournament foos today!
+
+The older tours were played on Tournament Soccer (TS), Dynamo, 
+and Hurricane tables in the 60's and 70's, but now the quality 
+of the newer brands of tables has much improved, prompting some 
+players to label the older tables as mere "toys".  So if you 
+haven't played on a Tornado or Striker, you really are missing a 
+lot, and perhaps even learning wrongly that some things are not 
+possible on a foosball table.  For example, the "modern" balls 
+tend to be made of a very durable plastic (urethane), causing 
+the balls not to dent and therefore they will always roll 
+completely straight.  The shapes and even fastenings for the men 
+have changed so that catching, kicking, and tic-tac-ing are much 
+easier; what is tic-tac-ing? Imagine passing rapidly between the 
+men on your three bar for up to several minutes on end-- the 
+sound the ball makes as it bounces between the men gives this 
+motion its name.  Other improvements include very flat playing 
+fields, individually adjustable table legs, smoother bearings, 
+lighter rods, counterweighted men, etc.  Most people which 
+switch over to these tables do not like them at first, but 
+within a few weeks of playing, the verdict is unanimous: no one 
+would dream of going back to playing seriously on their "old" 
+table, sentimental feelings aside.
+
+So the purpose of this file, and indeed the newsgroup itself, is 
+to promote the sport of foosball.  This particular file is 
+important, because by encouraging new players to begin playing, 
+and encouraging the large bulk of non-competitive experienced 
+players to enter competitive play, we will certainly make a 
+great step towards that goal.
+
+Happy Foosing,
+Rob Uyeyama (uyeyama@hawaii.edu)
+
+___________________________________
+CHAPTER 1 
+Getting Hooked: No Spinning Allowed
+___________________________________
+
+This chapter is intended for those who have little or no 
+experience in foosball at all, or for those who wish to "teach" 
+others who have little or no experience.
+
+    If you're reading this, you've probably encountered good 
+players, perhaps so good you didn't even dream that this "game" 
+could be taken so seriously.  But it is great fun, and you're 
+probably also on your way to getting hooked.  This is the most 
+important part; take the sport as fun, and never be discouraged 
+by any silly, competitive attitudes you may run across when 
+playing other "good" players.  Whether you want to learn how to 
+beat these people, or simply ignore them and just have fun with 
+your friends, it will benefit you to learn more about the sport.
+    The main goals which will be discussed are: 1) Discovering 
+what is possible; 2) Learning basic skills; 3) Discovering what 
+to practice (yes, practice).  Let us begin with the first 
+concept: what is possible?  First of all, the game consists of 
+putting the ball in your opponent's goal, and keeping it out of 
+yours-- that's obvious.  But there are good and bad ways of 
+accomplishing this.  The most common problem is "spinning the 
+rods."  Here are the most often-cited points that are good about 
+spinning the rods: 1) you can hit the ball HARD with little or 
+no effort 2) you hit the ball more often; 3) because of 1 & 2, you 
+probably score more often; 4) this method is fun and energetic; 
+5) if you don't spin, you miss the ball a lot, hit it slowly, 
+score less, and look lame.
+    REASONS WHY YOU SHOULDN'T SPIN THE RODS: 1) you can hit the 
+ball about as hard as your spin by practicing a wrist-flick (to 
+be described) in less than a week; 2) you can easily learn to 
+hit the ball more often than a random spin; 3) you can 
+accurately aim the ball and score, while a spin-shot is pretty 
+random or only straight and easily blockable by an alert 
+opponent; 4) you are in position to catch loose balls if you 
+don't spin, creating  more scoring opportunities; 5) spinning 
+can damage the table (by breaking men, pins/screws, or damaging 
+the rod itself).  The third and fourth reasons are the most 
+compelling since you'll score more often, while the first two 
+are just ways of saying, "you get the same benefits as spinning 
+anyways with very little practice."
+    So: don't spin the rods.  Now as far as offensive play, how 
+do you get these benefits?  This is what is important:  1) 
+practicing your wrist-flick, and; 2) aiming the ball.   Not 
+spinning the rods also helps you on defense, and that will be 
+discussed immediately afterwards.
+    WRIST FLICK: if you can't seem to hit the ball very hard 
+(without spinning), how do you do it?  First of all, try it with 
+your right hand, since that hand will be doing almost all 
+shooting.  Put the ball on the playfield under your front 
+three-man rod, in the center in front of an open goal (lift the 
+defending rods for an open shot).  Now, practice hitting the 
+ball as hard as possible straight into the goal from this 
+position-- use your middle man and _don't_ push or pull the rod:  
+1) Stand slightly to the left of the rod, and away from the 
+table; 2) Hold on to the handle, and don't let go; 3) Now, 
+"forget" about both your arm and your hand, and only concentrate 
+on your WRIST; 4) "Throw" your wrist as hard as you can 
+_straight_ down towards the _floor_, past the side of the 
+handle, resulting in 5) your wrist snapping downward-- since of 
+course your hand is still gripping the handle, the motion stops 
+as your wrist locks abruptly-- this is the wrist flick!
+    AIMING: set the ball up along the 3-rod as previously.  This 
+time, instead of concentrating on speed, consider your control 
+of the aim.  Observe that if you hit the ball dead-on, the ball 
+travels straight into the goal.  Now change your rod's position, 
+so that if you swing (wrist flick) straight (without 
+push/pulling the rod), you'll hit the left 1/4 of the ball.  
+Swing.  Notice that the ball angled to the right.  Different 
+distances from the edge of the ball produce different angles.  
+Beginning your swing with the front of the man's toe touching 
+the back of the ball gives you more control than if the toe 
+begins from the air way out from behind the ball.  Now try 
+aiming a shot into an undefended goal from every single man on 
+your five-man rod.  You can even hit a ball in from the very 
+edge of the table!
+    Before we go on, let me mention an alternative way of 
+hitting a ball hard, this is called the "open hand", or "fan" 
+technique.  Basically, you cock your rod & men backwards to shoot by 
+rolling the handle clockwise up your palm as you open your hand, 
+fingers toward the floor.  As you shoot, you reverse the motion 
+and roll the handle back (counterclockwise) to your fingers, 
+which catch the handle tightly.  Done quickly, this open-close 
+motion can result in a very hard shot.  Control with the 
+open-hand "fan" is more difficult that a normal wrist-flick, but 
+it can be learned. 
+    FUNDAMENTALS OF DEFENSE:  Again, don't spin the rods.  You 
+can only block an incoming shot if your men are straight down, 
+which they aren't about 80% time when they're spinning; yet it's 
+fairly common for beginners to do this anyways.  Why?  Because 
+it looks cool, and once in a while, a shot blocked by a spinning 
+rod will immediately become an offensive shot towards your 
+opponents goal-- neither of these reasons are compelling.  Even 
+if you're not spinning, don't get eager to shoot the ball:  Stop 
+the ball, then shoot it. ;)   Otherwise, you'll often lose the 
+ball, resulting usually in a possession and a quick goal from 
+your opponent's dreaded 3-rod.
+     So, what else do you do?  Your opponent can aim the ball 
+just like you can.  Therefore, you want to guard both the 
+STRAIGHT shot, and all ANGLE shots.  Remember if you can draw a 
+line from the ball to your goal, that shot is open.  Never 
+position your two men (your middle goalie and one of the men on 
+the two-man rod) behind each other- if you do, you're just 
+blocking the same place twice, and you might as well just lift 
+one of the men, and your defense wouldn't be any worse for it!  
+Just experiment, placing the ball on _all_ parts along the 
+opposing 3-rod, and positioning your defensive men to block both 
+the straight and angle shots.  Remember if you can draw a line 
+from the ball to your goal, that shot is open.  (Did I just say 
+that?)  Now your opponent either rely on you to flinch and open 
+these holes, or must "race" you, moving the ball horizontally 
+along his three-rod until it reaches a position where a 
+diiferent straight shot (or sometimes the angle) is open.  
+Defending against opponents who try this latter option will be 
+discussed in Chapter 2.  Also, be very aware that shots from the 
+opposing 5-rod and 2-rod can also be blocked in this way-- you 
+just have to learn to expect a shot from these areas of the 
+table, and block most of the possible "lines" to your goal.  
+Just being aware of these "lines" and trying to block them will 
+make a big difference.  Finally, if you're shooting from the 
+defensive region, remember you can still aim it, and take your 
+time to lift up your 5- and 3-rods (or in doubles, tell your 
+partenr) so that you'll never block your own shot!
+    WITH WHICH HAND DO YOU HOLD WHICH ROD in singles play? 1) 
+When you're defending against a 3-rod shot, hold BOTH of your 
+defensive rods (goalie & 2-man)-- Ditto for when you're shooting from 
+your defensive region.  2) When you're defending an opponent's 
+defensive-region shot, you should have your right hand on your 
+3-rod, and your left either on your 5-rod or goalie-rod; the 
+latter may be more effective at first.  When the ball is in the 
+center region, you should have your L & R hand on the goalie-rod and 
+5-rod (maximum defense).  3) Later, when you learn how to pass 
+and you have possession of the ball, you can stop the ball, and 
+switch to holding the 5-rod and the 3-rod (ready for offense or 
+passing to the 3-rod), and when you get much better, you may 
+wish to stay in this position for defense against the opposing 
+5-rod or 2-rod, so that you are ready to catch any loose balls 
+on your 3-rod.
+    BALL-CONTROL (or how not to lose the ball): this is 
+especially for those playing on tables which are not Tornado or 
+Striker, and tables which are old, dented, and otherwise warped.  
+Ball control is much easier on the Tornado and Striker, but the 
+skills in this section are still essential to learn for these 
+tables too.  To be able to use your growing arsenal, you need to 
+be able to "maneuver" the ball, and not lose it.  There are 
+three exercises which are good to do, all on the 3-rod. 
+1)  INTERCEPTION: Try _very_ lightly tapping the front of the 
+ball (with the back of your toe), then as the ball rolls back, 
+tapping the back of the ball (with the front of your toe).  
+Continue to gently tap the ball back and forth; this 
+back-and-forth distance will be less than an inch-- the skill 
+being learned here is to rapidly lift the man and swing it 
+around to the other side of the ball to prevent it from rolling 
+away.  You will find the shape of the motion to be a series of 
+"C" shapes around the ball.  2)  PINNING:  In the second 
+exercise again begin by tapping one side (front or back) of the 
+ball, but this time let it roll further.  Move in the same "C" 
+shape as if to intercept it, but leave your toe lifted in the 
+air.  When the ball rolls under your man's toe, bring it down 
+forcefully on the _top_ surface of the ball to "pin" it to the 
+playing field, resulting in a sudden stop.  Practice both 
+versions (i.e. tap back of ball then front-pin; tap front of 
+ball then back-pin).  This develops the reflex to suddenly and 
+confidently "catch" a ball which is too difficult to intercept 
+by method 1).  For example, this "pin" catch is very useful for 
+a ball which is rolling away at high speed.  3)  BALL MOVEMENT:  
+The third exercise is to pass the ball from one man on the 3-rod 
+to another, steady the ball, and again pass it to the next man 
+on the rod.  Continue passing among all three men on the rod.  
+The skill here is maneuvering the ball wherever you wish it to 
+be along your rod.  Also try bringing the ball to a stop at 
+various points along the rod.  You will find that the skills 
+learned in 1) and 2) are very useful to prevent the ball from 
+rolling away out of reach-- try and develop a feel for when it 
+is better to use 1) vs. 2) to retrieve a ball about to roll away 
+from you.  These skills of interception, pinning, and 
+ball-movement are applicable to all rods of a foosball table.
+    Now that you can wrist-flick hard, aim the ball, know how to 
+act on defense, and know how to maneuver a ball without losing 
+it, you are hereby no longer a "spinner"!
+
+
+__________________________________________
+Chapter 2
+Learning that Consistency is the Key--
+Resolving to Practice & Stop the Ball
+__________________________________________
+
+This chapter is intended for players who have casually played the game 
+(and never took it seriously) for many months or even years, and for 
+those who have been seriously playing but only for a few months.
+
+    If you're reading this chapter, you may play the game largely to 
+pass time while being entertained-- you may have played the game like 
+this for a few years, even going through a few short periods of 
+"foos-addiction" and taking the game seriously.  Now, after all this 
+time, you've finally become tired of that/those "good" players still 
+being much better than you are and would like to know if it's worth the 
+effort to get that good.  Answer: The effort required is much less than 
+you think; the keys are knowing what to practice, and knowing strategy.
+    What may seem to be the answer at first is acquiring an arsenal of 
+unstoppable shots; this is untrue!  Although having such an arsenal 
+isn't necessarily a disadvantage, all you need on the 3-bar is one good 
+shot... learning all of the other shots will simply make you 2nd-best 
+in all of them, and very good at none.  However one unstoppable shot 
+from the 3-rod is not enough either; you need a good 5-rod to pass it 
+to your 3-rod unstoppably.  Re-learning your defense is less critical 
+at this point (for tips on learning a moving-defense see Chapter 3).
+    So in summary:  1) choose a shot and learn it well; 2) Learn the 
+5-rod brush-pass, and use it so you can use your shot; and 3) learn 
+essential strategy so you can put your shot and pass to good use.  All 
+of these parts must be performed consistently and effortlessly-- using 
+your best shot or pass once in a while, or having it be inconsistent 
+(i.e. it works great half of the time) will make all of your effort 
+moot.  1-3 are described in turn:
+
+3-ROD SHOT:
+___________ 
+    You should choose _one_ main shot.  My advice is choose the pull.  
+If you play on a Tornado or Stryker table, you can choose either the 
+pull or the snake; on some of the older tables, snake-shots are often 
+more difficult and less potent.  Read FAQ6 for instructions on these 
+offensive weapons-- included are instructions for both beginners and 
+intermediates.  Once you have chosen a shot, it is very important to 
+use it strategically... in other words _every single time_ you get the 
+ball on your 3-rod; the point here is that your favorite shot is also 
+your highest-percentage shot.  Having a wide-arsenal is fun and flashy, 
+but the "one-shot-player" will win the most matches!  Make sure your 
+setup is the best it can be; for example with a pull, make sure your 
+3-rod is pushed all the way to the wall; if it isn't, the defense has 
+less goal to defend, and your scoring percentage will simply go down!
+    Why the pull is good: Good shooters can shoot the shot so fast the 
+defense cannot race the shooter to the hole.  The pull-shot begins with 
+the ball on the right side of the middle-man with the 3-bar is pushed 
+to the wall; as you pull the rod, the ball moves horizontally, and you 
+eventually shoot the ball in.  Remember a good stationary defense will 
+cover your straight shot and angle shot.  By moving the ball 
+horizontally far enough you will be able to shoot a straight shot to 
+the right side of the goal; the defense will obviously move his men to 
+the right side of the goal.  Therefore for the shot to succeed, you 
+must "race" the defense to that open hole; if you have a slow pull 
+shot, it's useless.  If you have a fast one, you can _always_ beat a 
+set defense to the hole!
+    Some caveats:  A fast pull can be beaten by a set defense if the 
+timing of the shot is predictable... in other words don't set up your 
+shot, wait a  consistently predictable two seconds, then shoot it-- a 
+blazing fast "2-second pull" is raceable.  By USTSA rules, you have 15 
+seconds on your 3-rod, so use your time and "sit on it"!  You will also 
+be able to analyze the defense during this time.  Also, practice 
+shooting the straight shot (!) accurately in the case of a good 
+moving-defense.
+    Why the snake is good:  This shot begins in a front pin in the 
+exact center of the 3-bar.  The shot is good because it can be as fast 
+as a pull shot, but can be shot in both directions: the pull-snake to 
+the right corner and the push-snake to the left-corner... the defense 
+doesn't know what to defend!  If these are both covered, the straight 
+shot is open.  For this reason, the snake is most useful when its setup 
+is in the center of the table.  Most people think the snake-shot is 
+easier to learn than the pull, and for this reason some people 
+recommend learning the snake to beginners; people can get quite good at 
+the shot in only a month!  And once you learn the shot, you will find 
+the soreness of your wrist will disappear.  But learning to really 
+master the shot, however, is not easy either.
+    If you don't want to _practice_ a shot _at all_, but still would 
+like to score better, doing the push-kick or the pull-kick (see 
+definition in FAQ1) _every time_ you get the ball on your 3-rod will 
+improve your scoring percentage.  Why?  I am not implying that these 
+are bad shots to learn in the long-run; many people have unstoppable 
+push-kicks and pull-kicks.  The reason these shots are recommended in 
+this context is that even a medium-speed push-kick or pull-kick can 
+score reasonably against a good defender; a medium-speed pull or snake 
+is much easier to block!  This is because where you intend to shoot the 
+ball is more unpredictable-- the ball begins on the inside of either of 
+the outer-men on the 3-rod (left man = pull-kick setup; right man = 
+push-kick setup).  The ball is passed horizontally to the middle man, 
+who shoots it straight in.  This middle man can shoot the ball straight 
+into either the left or right corner of the goal, depending on how far 
+the horizontal pass is.  If the horizontal pass is even medium-fast, it 
+becomes difficult for the defender to predict which corner you are 
+aiming for. So practice shooting the _edges_:  the edge of the near 
+corner and the far corner of the goal.  The middle of the goal will 
+usually be blocked in any case, but if you always aim for the corners, 
+you will be most unpredictable to the defender!  Also, be aware of two 
+more options: 1) a faked pass w/the outer man who instead angle-shoots 
+it toward the near corner, or 2) executes an outer-man push or pull 
+shot toward the near corner.
+    However, mastering a pull-kick or push-kick shot so that your 
+scoring percentage is very high tends to be more difficult than getting 
+to this same percentage with a pull or a snake shot.  So if you are 
+going to practice a shot, make it the pull or snake.  If you refuse to 
+practice, but still want to score more, always use a push-kick or 
+pull-kick.  And always use your best shot.
+
+5-ROD PASS
+__________
+    Having an unstoppable 3-rod shot is useless if you never get the 
+ball on your 3-rod!  A good opponent will do exactly this.  Even if no 
+players in your area can keep the ball away from your 3-bar the entire 
+game, learning a good 5-rod pass will still do wonders!  You can play 
+someone with a better shot, and if your pass is better, you will get 
+more scoring opportunities, and things will even out in your favor.
+    If you're going to practice anything on your 5-bar at all, practice 
+the "Brush Pass"-- read FAQ2 and skip straight to the "brush passing" 
+section.  The brush pass techniques will begin bearing improvements to 
+your game almost immediately.  So the brush-pass is _as_ important as 
+learning a good 3-rod shot.  Spend as much time practicing this as your 
+you do your shot.
+    What else do you need to know about your 5-rod?  You should be able 
+to: 1) block opposing defensive shots; 2) block opposing 5-rod passes.  
+The first point is difficult for many people because there are "too 
+many men" on the rod, and the range of motion of that rod is very 
+limited.  The following exercise (also described in FAQ3) is very 
+helpful: Lift up the opposing 5-rod.  Pass the ball back and forth 
+between your 5-rod and your 3-rod, doing ALL ANGLE PASSES.  The 
+straight passes are easy to intercept, but the angle passes are the 
+ones which teach the range of motion for each man on the 5-rod; it may 
+be frustrating but even a few 10-15 minute sessions will help vastly.  
+Once your "intuition" for the 5-rod is improved, you will block more 
+shots from the opposing defensive region.  Also, by using this 
+intuition, you can begin using your 3-rod men to block the "holes" in 
+your five-bar (usually the spaces between the 2nd & 3rd and 3rd & 4th men).  "Meshed" 
+in this way,  both your 3-rod and 5-rod can contribute in the most 
+effective way.
+    The second point, blocking passes, will be improved just by the 
+intuitions developed while learning the brush pass; also you can block 
+slow-medium speed passes by moving your 5-rod back and forth rapidly, 
+so that you "swat" away any passes.  Moving unpredictably back and 
+forth can also make it more difficult for a good passer to choose the 
+open pass.  Remember that your wall pass is very open because the 
+bumper on the five-bar prevents your men from actually touching the 
+wall; against very good brush-passers, you can "twitch", pretending to 
+move the five-bar off of the wall (or lane), but actually keeping it 
+stationary-- mix your "twitches" and back-and-forth movements.  This 
+advice even should be applied to on a standard moving-defense in the 
+defensive-region!
+    Finally, if you have practice your brush-pass, a consequence will 
+be that you will habitually keep your 3-rod angled forward, making it 
+much easier to catch loose balls.  If the defense is shooting, you can 
+angle it backwards to try to catch a blocked shot.  When your 5 and 3 
+rod are both lifted for any reason, they should swing to the 
+horizontal, the 5 rod clockwise, the 3 rod counter-clockwise.  In this 
+way, your 3-rod is ready to catch an incoming loose ball, and the 5-rod 
+is ready to block a bounce off of the opposing 5-rod.
+
+STRATEGY:
+    After you learn your chosen shot and the brush pass, you must do 
+two things with these: learn to execute these consistently (19 out of 
+20 times) and religiously use them in real play.
+    In addition to your shot, pass, and shot-pass strategy, there 
+are 
+additional points  1) _never ever_ accidentally lose a ball you have 
+possession of-- practicing pinning hard any ball which is about to get 
+away from you; 2) learn to _always_ foos the ball to yourself-- 
+practice this; 3) _never_ repeat bad strategies; 4) _never_ shoot the 
+ball from the 5-rod; 5) learn ball control & pass-catching, and when you lift 
+your 3-rod up swing it up counter-clockwise/toes-forward-- this is so 
+you will learn to catch loose balls like velcro.
+    In more detail:
+    Your shot options (long, middle, straight) should be practiced to 
+at least 9 out of 10 consistency, and preferably 19 out of 20.  The 
+same goes for each of your brush pass options (wall-pass/brush-down, 
+lane-pass/brush-up).  Once you're this consistent, don't even dream of 
+using a less effective trick shot or second shot in a tournament.  The 
+same goes for hacking from the 5-bar-- sure, you may sometimes score, 
+but since your pass and shot are so consistent, your scoring percentage
+_per 5-bar possession_ will be higher if you brush pass and shoot from 
+your 3-bar instead!  Maximize your percentages!  Ditto goes for losing 
+the ball; a lost ball on a 5-rod possession may mean one less point for 
+you; losing the ball from the defensive region may give your opponent a 
+3-rod shot opportunity, which is _bad_ if his shot is as good as yours! 
+If you can't serve the ball to yourself, that's as bad as losing a 
+5-rod possession!
+    Learn to keep your 3-rod either swung up counter-clockwise and 
+horizontally with toes-forward, or down with the toes still slightly 
+angled forward.  In either case you are ready or almost-ready to catch 
+a loose ball or quick pass.  On a Tornado, this forward-angle can also 
+"auto-stuff" defensive shots when the ball bounces hard off of the 
+3-man's toe.  The uncommon exception to the rule is when your 
+opponent's defensive shots are weak, you can consider angling your 
+3-man backwards (in this case only) to try to "catch" the shot by 
+blocking it.
+    But when you lift your 5-rod, lift it by turning the rod _clockwise_
+.  And when it is down defending against a 2-rod shot, angle it 
+toes-slightly-forward so that any hard shots will bounce hard off the 
+toe, and perhaps into the opposing goal (i.e. "auto-stuff") or at least 
+to you 3-rod which is waiting angled-forward (if you read the last 
+paragraph) and automatically ready to catch any such rebound; hence 
+when you lift both rods, the two lines will "swing away" from each 
+other, 3-rod counter clockwise, 5-rod clockwise.
+    Never shooting from the 5-rod was explained above.  Also, a blocked 
+5-rod shot may mean a 5-rod possession and therefore a point for your 
+opponent!  Of course, there are some exceptions to the rule.  These 
+exceptions will be discussed next, but remembers they are only 
+exceptions to fine-tune your strategy, not excuses to have lapses in 
+your strategy.
+    The most difficult point is the one about not repeating bad 
+strategies.  For example, let's pretend your chosen (and best) shot on 
+offense is the pull.  If your opponent blocks your first attempt, you 
+should probably stick with the same shot.  However, if many more pulls 
+are blocked, you may consider going to your second-shot, or even a 
+trick shot; in this case, although your pull is your best shot, it is 
+not the best shot to use _against this opponent_.  You may find the 
+snake works better; you should experiment and find what your best shot 
+is, and stick with that.  An unexpected one-time trick shot may also be 
+worth one point here, but no more than that.
+    The same goes for a 5-rod shot, or a shot or pass immediately upon 
+foosing the ball.  If it's unexpected, and you think your chances are 
+high for scoring, it may be justified.  Try it once.  Remember it's all 
+percentages: repeatedly using these tricks or hacks will only make you 
+score less.
+    The same goes for defense.  Suppose you use a stationary 
+race-defense and it usually works, but if one day you should run up 
+against someone who always scores on you, you should drop the race 
+defense, and experiment with a moving-defense; although if you're not 
+familiar with a moving-defense, you may still block 50% or 25% of the 
+shots, while previously you were blocking about 0% with the 
+race-defense.  Now, instead of a hopeless race, the burden is now on 
+the shooter who has to guess which holes you are opening, and when.
+     Remember, you can also vary the _type_ of moving defense that you 
+use; if the opponent is always scoring on your moving defense when you 
+use your far 2-man, switch to your 1-man periodically-- if the opponent 
+scores too often when you bait the long shot, bait the middle or 
+straight.  So switching the 2-man that you use is good, just as long as 
+you don't do it too often-- if the shooter can count on you switching, 
+he can wait for the switch then shoot it in.  Also, to increase the 
+unpredictability of your defensive motions, remember to experiment with 
+your mix of several techiniques: 1) a periodically standstill rod, 2) a 
+moving rod, (push/pull movement), 3) back-forth circular movements of 
+the men, 4) "twitching" movements to give the appearance that your men 
+are going to move to another spot in the defense, but actually stay 
+put; 5) switching your 2-man; 6) leaving the straight-shot open.
+    In summary, when you are using a moving-defense, _think_ about what 
+areas you are blocking-- don't get caught just moving your men back and 
+forth across the front of the goal without being aware of which holes 
+are being opened most, and which hole is likely to look most enticing 
+to the shooter.  A moving-defense is _not_ strictly a random defense; 
+there is a lot of subtle "baiting" to be done along with the 
+unpredictability.  Be able to adjust your defense for different 
+opponents as soon as possible.
+    You get the idea: figure out what works, then stick to it.  This 
+means using your brush-pass and "best"-shot sequence.  Keep the 
+exceptions infrequent, and make the exceptions work toward your scoring 
+and blocking percentages.
+    Summary: use the tools you have practiced to your advantage!
+
+
+_____________________________________________
+Chapter 3
+So You Thought You Were Good...
+But Then You Went to the First Big Tournament
+_____________________________________________
+
+    This chapter will be short, but will also be on the topic most dear 
+to my heart.  The chapter title describes me a few years ago, and the 
+only difference today is that I'm still not good, but now I know it...
+    My only advice is that if you're beating all the players around 
+you, you _have_ to go out and find players who can beat _you_.  Then 
+you'll see what great foosball is like, and then you may be motivated 
+to practice that brush-pass, that moving-defense, and all those other 
+techniques that seemed like sheer nonsense to you before.
+    Probably the easiest way to find good players in your area is to 
+find local Tornado tournaments.  Call the Tornado Promotions Hot Line 
+at (303) 933-1170, and they will be able to tell you the phone number 
+of a "promotor" (i.e. tournament-organizer) in your area.  Then call 
+your promotor, who will give you all of the details.  The Striker 
+foosball tables are starting to make inroads in the foos-world, so you 
+can also contact them at Dynamo at (800) 527-6054.  Also, you can find 
+many tournament listings in alt.sport.foosball's FAQ 3: "Playing 
+Locations."  And of course you can pipe up on alt.sport.foosball to see 
+if any other players are in your area.  Finally, if you're suspicious 
+about these Tornado or Stryker tables you've heard of, give them a good 
+try anyways: go to these tournaments for a few months, then decide what 
+you think... I can almost guarantee you will eventually be a "convert"! 
+    The other advantage to playing better players is that you learn 
+faster... _much_ faster.  You'll learn what a good moving-defense for a 
+pull shot or a snake is like; the subtleties are hard to figure out on 
+your own!  You'll learn new options from regular shot set-ups that you 
+never knew existed.  You'll learn the importance of ball spin, and how 
+quickly you will lose if you don't have a brush pass or stick pass 
+series.  You may even learn downright useless things such as how to set 
+up and shoot the flamboyant Rainbow (aerial shot), or the Alien.  You 
+get the idea.
+    So, whether you're the current college champ, bar champ, or a 
+former addict, go ahead and find those better players... although you 
+may lose more games than you're accustomed to, you will probably have a 
+new drive to become better at the sport.  And once you attend a Tour 
+event, you'll be hopelessly hooked, and the entire sport will benefit 
+from the widened base of competition players.
+
+    As a final word, please read Chapter 2 of this file.  It contains 
+some general advice which is valid and useful no matter how good you 
+are at the sport.  The sequence of choosing one shot, then learning and 
+always using the brush-pass are key, as is the advice on strategy; even 
+following these instructions will immediately improve your game (i.e. 
+stop hacking from 5-rod and pass, and concentrate on one shot).  The 
+one thing I would add is to learn a good moving defense, since you
+_will_ find that most players have 3-rod shots which can't be reliably 
+raced-- even if your moving defense is still letting shots through, 
+you'll find that the shots-against percentage has at least decreased 
+compared to your stationary race-defense; unfortunately there is not a 
+faq (frequently-asked-questions) file on this topic yet, but it should 
+be forthcoming.  There are however, faq files on the brush-pass (faq2) 
+and the snake (aka rollover) and pull shots (faq6) that are worth 
+reading.  Happy foosing!
+

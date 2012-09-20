@@ -17,6 +17,20 @@ type Datastore interface {
 }
 */
 
+type Player struct {
+    id int
+    name string
+}
+
+type Game1v1 struct {
+    id int
+    player1 int
+    player2 int
+    score1 int
+    score2 int
+    winner int
+}
+
 func CreateNewDB(db_name string) error {
     db_name = "./" + db_name
     os.Remove(db_name)
@@ -90,6 +104,44 @@ func GetAllPlayers(db_name string) (string, error) {
     return player_string, nil
 }
 
+func GetPlayerByID(db_name string, id int) (Player, error) {
+    db_name = "./" + db_name
+    db, err := sql.Open("sqlite3", db_name)
+    if err != nil {
+        return Player{}, err
+    }
+    defer db.Close()
+
+    stmt, err := db.Prepare("select name from players where id = ?")
+    if err != nil {
+        return Player{}, err
+    }
+    defer stmt.Close()
+
+    var name string
+    err = stmt.QueryRow(id).Scan(&name)
+    if err != nil {
+        return Player{}, err 
+    }
+
+    fetched_player := Player{id, name}
+    return fetched_player, nil
+}
+
+func AddGame1v1(db_name string, game Game1v1) (error) {
+    //implement this!
+    return nil
+}
+
+func GetAllGames1v1(db_name string) ([]Game1v1, error) {
+    //implement this!
+    return nil, nil
+}
+
+func GetGame1v1ByID(db_name string, id int) (Game1v1, error) {
+    //implement this!
+    return Game1v1{}, nil
+}
     
 /*    
 
