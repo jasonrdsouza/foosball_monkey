@@ -33,6 +33,7 @@ type Game1v1 struct {
 
 func CreateNewDB(db_name string) error {
     db_name = "./" + db_name
+    //remove old db
     os.Remove(db_name)
 
     db, err := sql.Open("sqlite3", db_name)
@@ -177,8 +178,27 @@ func GetAllGames1v1(db_name string) ([]Game1v1, error) {
 }
 
 func GetGame1v1ByID(db_name string, id int) (Game1v1, error) {
-    //implement this!
-    return Game1v1{}, nil
+    db_name = "./" + db_name
+    db, err := sql.Open("sqlite3", db_name)
+    if err != nil {
+        return Game1v1{}, err
+    }
+    defer db.Close()
+
+    stmt, err := db.Prepare("select player1, player2, score1, score2, winner from games1v1 where id = ?")
+    if err != nil {
+        return Game1v1{}, err
+    }
+    defer stmt.Close()
+
+    game := Game1v1{}
+    game.Id = id
+    err = stmt.QueryRow(id).Scan(&(game.Player1), &(game.Player2), &(game.Score1), &(game.Score2), &(game.Winner))
+    if err != nil {
+        return Game1v1{}, err 
+    }
+
+    return game, nil
 }
     
 /*    

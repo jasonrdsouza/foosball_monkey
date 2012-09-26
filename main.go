@@ -44,11 +44,12 @@ func getAllPlayers(w http.ResponseWriter, req *http.Request) {
 func getPlayerByID(w http.ResponseWriter, req *http.Request) {
     vars := mux.Vars(req)
     id, _ := strconv.Atoi(vars["id"])
-    fetched_player, err := datastore.GetPlayerByID(database, id)
+    p, err := datastore.GetPlayerByID(database, id)
     if err != nil {
         fmt.Fprintln(w, err)
     }
-    fmt.Fprintln(w, fetched_player)
+    output_string := fmt.Sprintf("Player %d: %s\n", p.Id, p.Name)
+    fmt.Fprintln(w, output_string)
 }
 
 func addGame1v1(w http.ResponseWriter, req *http.Request) {
@@ -75,7 +76,15 @@ func getAllGames1v1(w http.ResponseWriter, req *http.Request) {
 }
 
 func getGame1v1ByID(w http.ResponseWriter, req *http.Request) {
-    fmt.Fprintln(w, "Implement getGameByID functionality!")
+    vars := mux.Vars(req)
+    id, _ := strconv.Atoi(vars["id"])
+    g, err := datastore.GetGame1v1ByID(database, id)
+    if err != nil {
+        fmt.Fprintln(w, err)
+    }
+    output_string := fmt.Sprintf("1v1Game ID: %d\n\tPlayer 1: %d\n\tPlayer 2: %d\n\tScore 1: %d\n\tScore 2: %d\n\tWinner: %d\n", 
+                                        g.Id, g.Player1, g.Player2, g.Score1, g.Score2, g.Winner)
+    fmt.Fprintln(w, output_string)
 }
 
 
