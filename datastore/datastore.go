@@ -2,11 +2,11 @@ package datastore
 
 import (
     "database/sql"
-    "fmt"
     _ "github.com/mattn/go-sqlite3"
     "os"
     //"strconv"
     //"errors"
+    //"fmt"
 )
 
 /*
@@ -18,17 +18,17 @@ type Datastore interface {
 */
 
 type Player struct {
-    id int
-    name string
+    Id int
+    Name string
 }
 
 type Game1v1 struct {
-    id int
-    player1 int
-    player2 int
-    score1 int
-    score2 int
-    winner int
+    Id int
+    Player1 int
+    Player2 int
+    Score1 int
+    Score2 int
+    Winner int
 }
 
 func CreateNewDB(db_name string) error {
@@ -80,28 +80,27 @@ func AddPlayer(db_name string, player_name string) (error) {
     return nil
 }
 
-func GetAllPlayers(db_name string) (string, error) {
+func GetAllPlayers(db_name string) ([]Player, error) {
     db_name = "./" + db_name
     db, err := sql.Open("sqlite3", db_name)
     if err != nil {
-        return "", err
+        return nil, err
     }
     defer db.Close()
 
     rows, err := db.Query("select id, name from players")
     if err != nil {
-        return "", err
+        return nil, err
     }
     defer rows.Close()
 
-    player_string := ""
+    players := make([]Player, 0)
     for rows.Next() {
-        var id int
-        var name string
-        rows.Scan(&id, &name)
-        player_string += fmt.Sprintf("ID: %d,\tName: %s\n", id, name)
+        player := Player{}
+        rows.Scan(&(player.Id), &(player.Name))
+        players = append(players, player)
     }
-    return player_string, nil
+    return players, nil
 }
 
 func GetPlayerByID(db_name string, id int) (Player, error) {
@@ -128,14 +127,53 @@ func GetPlayerByID(db_name string, id int) (Player, error) {
     return fetched_player, nil
 }
 
-func AddGame1v1(db_name string, game Game1v1) (error) {
-    //implement this!
+func AddGame1v1(db_name string, player1 int, player2 int, score1 int, score2 int, winner int) (error) {
+    db_name = "./" + db_name
+    db, err := sql.Open("sqlite3", db_name)
+    if err != nil {
+        return err
+    }
+    defer db.Close()
+
+    //start a transaction (tx)
+    tx, err := db.Begin()
+    if err != nil {
+        return err
+    }
+    stmt, err := tx.Prepare("insert into games1v1(player1, player2, score1, score2, winner) values(?, ?, ?, ?, ?)")
+    if err != nil {
+        return err
+    }
+    defer stmt.Close()
+    _, err = stmt.Exec(player1, player2, score1, score2, winner)
+    if err != nil {
+        return err 
+    }
+    tx.Commit()
     return nil
 }
 
 func GetAllGames1v1(db_name string) ([]Game1v1, error) {
-    //implement this!
-    return nil, nil
+    db_name = "./" + db_name
+    db, err := sql.Open("sqlite3", db_name)
+    if err != nil {
+        return nil, err
+    }
+    defer db.Close()
+
+    rows, err := db.Query("select id, player1, player2, score1, score2, winner from games1v1")
+    if err != nil {
+        return nil, err
+    }
+    defer rows.Close()
+
+    games := make([]Game1v1, 0)
+    for rows.Next() {
+        game := Game1v1{}
+        rows.Scan(&(game.Id), &(game.Player1), &(game.Player2), &(game.Score1), &(game.Score2), &(game.Winner))
+        games = append(games, game)
+    }
+    return games, nil
 }
 
 func GetGame1v1ByID(db_name string, id int) (Game1v1, error) {
