@@ -23,7 +23,7 @@ func initializeDB() {
 }
 
 func addPlayer(w http.ResponseWriter, req *http.Request) {
-    err := datastore.AddPlayer(database, "testplayer")
+    err := datastore.AddPlayer(database, "testplayer", "testing the tagline!")
     if err != nil {
         fmt.Fprintln(w, err)
     }
@@ -37,7 +37,7 @@ func getAllPlayers(w http.ResponseWriter, req *http.Request) {
     }
     output_string := ""
     for _, p := range players {
-        output_string += fmt.Sprintf("Player %d: %s\n", p.Id, p.Name)
+        output_string += fmt.Sprintf("Player %d: %s\n\tTagline: %s\n", p.Id, p.Name, p.Tagline)
     }
     fmt.Fprintln(w, output_string)
 }
@@ -49,42 +49,42 @@ func getPlayerByID(w http.ResponseWriter, req *http.Request) {
     if err != nil {
         fmt.Fprintln(w, err)
     }
-    output_string := fmt.Sprintf("Player %d: %s\n", p.Id, p.Name)
+    output_string := fmt.Sprintf("Player %d: %s\n\tTagline: %s\n", p.Id, p.Name, p.Tagline)
     fmt.Fprintln(w, output_string)
 }
 
-func addGame1v1(w http.ResponseWriter, req *http.Request) {
-    err := datastore.AddGame1v1(database, 1, 2, 5, 10, "a", "2012-09-26")
+func addGame(w http.ResponseWriter, req *http.Request) {
+    err := datastore.AddGame(database, 1, 1, 2, 2, 5, 10, "a", "2012-09-26")
     if err != nil {
         fmt.Fprintln(w, err)
     }
-    fmt.Fprintln(w, "Test 1v1 game added!")
+    fmt.Fprintln(w, "Test game added!")
 }
 
-func getAllGames1v1(w http.ResponseWriter, req *http.Request) {
-    var games []datastore.Game1v1
-    games, err := datastore.GetAllGames1v1(database)
+func getAllGames(w http.ResponseWriter, req *http.Request) {
+    var games []datastore.Game
+    games, err := datastore.GetAllGames(database)
     if err != nil {
         fmt.Fprintln(w, err)
     }
     
     output_string := ""
     for i, g := range games {
-        output_string += fmt.Sprintf("Game %d:\n\tID: %d\n\tPlayer A: %d\n\tPlayer B: %d\n\tScore A: %d\n\tScore B: %d\n\tWinner: %s\n\tPlayed: %s\n", 
-                                    i, g.Id, g.PlayerA, g.PlayerB, g.ScoreA, g.ScoreB, g.Winner, g.Timestamp)
+        output_string += fmt.Sprintf("Game %d:\n\tID: %d\n\tOffender A: %d\n\tDefender A: %d\n\tOffender B: %d\n\tDefender B: %d\n\tScore A: %d\n\tScore B: %d\n\tWinner: %s\n\tPlayed: %s\n", 
+                                    i, g.Id, g.OffenderA, g.DefenderA, g.OffenderB, g.DefenderB, g.ScoreA, g.ScoreB, g.Winner, g.Timestamp)
     }
     fmt.Fprintln(w, output_string)
 }
 
-func getGame1v1ByID(w http.ResponseWriter, req *http.Request) {
+func getGameByID(w http.ResponseWriter, req *http.Request) {
     vars := mux.Vars(req)
     id, _ := strconv.Atoi(vars["id"])
-    g, err := datastore.GetGame1v1ByID(database, id)
+    g, err := datastore.GetGameByID(database, id)
     if err != nil {
         fmt.Fprintln(w, err)
     }
-    output_string := fmt.Sprintf("1v1Game ID: %d\n\tPlayer A: %d\n\tPlayer B: %d\n\tScore A: %d\n\tScore B: %d\n\tWinner: %s\n\tPlayed: %s\n", 
-                                        g.Id, g.PlayerA, g.PlayerB, g.ScoreA, g.ScoreB, g.Winner, g.Timestamp)
+    output_string := fmt.Sprintf("Game ID: %d\n\tOffender A: %d\n\tDefender A: %d\n\tOffender B: %d\n\tDefender B: %d\n\tScore A: %d\n\tScore B: %d\n\tWinner: %s\n\tPlayed: %s\n", 
+                                        g.Id, g.OffenderA, g.DefenderA, g.OffenderB, g.DefenderB, g.ScoreA, g.ScoreB, g.Winner, g.Timestamp)
     fmt.Fprintln(w, output_string)
 }
 
@@ -97,9 +97,9 @@ func main() {
     r.HandleFunc("/players", getAllPlayers)
     r.HandleFunc("/players/{id:[0-9]+}", getPlayerByID)
     r.HandleFunc("/players/add", addPlayer)
-    r.HandleFunc("/games1v1", getAllGames1v1)
-    r.HandleFunc("/games1v1/{id:[0-9]+}", getGame1v1ByID)
-    r.HandleFunc("/games1v1/add", addGame1v1)
+    r.HandleFunc("/games", getAllGames)
+    r.HandleFunc("/games/{id:[0-9]+}", getGameByID)
+    r.HandleFunc("/games/add", addGame)
 
     http.Handle("/", r)
     if err := http.ListenAndServe(":8080", nil); err != nil {

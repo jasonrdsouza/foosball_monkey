@@ -3,6 +3,15 @@ foosball_monkey
 
 Webapp to track foosball things.
 
+Todo
+----
+1. make a way to interactively add games/ players
+    - html forms
+    - form validations?
+2. backup db functionality
+    - copy file somewhere else (dropbox?)
+
+
 Keeps track of:
 - Players
     - name
@@ -12,13 +21,6 @@ Keeps track of:
     - score of games played
     - frequency of position played
         - offense vs defense?
-- Games
-    - players involved
-    - score
-    - who won
-    - 1v1
-    - 1v2
-    - 2v2
 - Foosball table currently in use?
     - track when the table is used over time
     - figure out what times it is free/ most busy
