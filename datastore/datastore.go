@@ -4,8 +4,10 @@ import (
     "database/sql"
     _ "github.com/mattn/go-sqlite3"
     "os"
-    //"strconv"
-    //"errors"
+    "time"
+    "strings"
+    "strconv"
+    "errors"
     //"fmt"
 )
 
@@ -24,11 +26,35 @@ type Player struct {
 
 type Game1v1 struct {
     Id int
-    Player1 int
-    Player2 int
-    Score1 int
-    Score2 int
-    Winner int
+    PlayerA int
+    PlayerB int
+    ScoreA int
+    ScoreB int
+    Winner string
+    Timestamp time.Time
+}
+
+type Game1v2 struct {
+    Id int
+    PlayerA int
+    PlayerB1 int
+    PlayerB2 int
+    ScoreA int
+    ScoreB int
+    Winner string
+    Timestamp time.Time
+}
+
+type Game2v2 struct {
+    Id int
+    PlayerA1 int
+    PlayerA2 int
+    PlayerB1 int
+    PlayerB2 int
+    ScoreA int
+    ScoreB int
+    Winner string
+    Timestamp time.Time
 }
 
 func CreateNewDB(db_name string) error {
@@ -44,7 +70,9 @@ func CreateNewDB(db_name string) error {
 
     sqls := []string{
         "create table players (id integer not null primary key, name text)",
-        "create table games1v1 (id integer not null primary key, player1 integer, player2 integer, score1 integer, score2 integer, winner integer)",
+        "create table games1v1 (id integer not null primary key, PlayerA integer, PlayerB integer, ScoreA integer, ScoreB integer, winner string, dt datetime)",
+        "create table games1v2 (id, integer not null primary key, PlayerA integer, PlayerB1 integer, PlayerB2 integer, ScoreA integer, ScoreB integer, winner string, dt datetime)",
+        "create table games2v2 (id, integer not null primary key, PlayerA1 integer, PlayerA2 integer, PlayerB1 integer, PlayerB2 integer, ScoreA integer, ScoreB integer, winner string, dt datetime)",
     }
     for _, sql := range sqls {
         _, err = db.Exec(sql)
@@ -53,6 +81,17 @@ func CreateNewDB(db_name string) error {
         }
     }
     return nil
+}
+
+func convertDateStrToTime(date_string string) (time.Time, error) {
+    dt_parts := strings.Split(date_string, "-")
+    if len(dt_parts) < 3 {
+        return time.Time{}, errors.New("Malformed date string detected")
+    }
+    year, _ := strconv.Atoi(dt_parts[0])
+    month, _ := strconv.Atoi(dt_parts[1])
+    day, _ := strconv.Atoi(dt_parts[2])
+    return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC), nil
 }
 
 func AddPlayer(db_name string, player_name string) (error) {
@@ -128,7 +167,7 @@ func GetPlayerByID(db_name string, id int) (Player, error) {
     return fetched_player, nil
 }
 
-func AddGame1v1(db_name string, player1 int, player2 int, score1 int, score2 int, winner int) (error) {
+func AddGame1v1(db_name string, playerA int, playerB int, scoreA int, scoreB int, winner string, dt string) (error) {
     db_name = "./" + db_name
     db, err := sql.Open("sqlite3", db_name)
     if err != nil {
@@ -141,16 +180,17 @@ func AddGame1v1(db_name string, player1 int, player2 int, score1 int, score2 int
     if err != nil {
         return err
     }
-    stmt, err := tx.Prepare("insert into games1v1(player1, player2, score1, score2, winner) values(?, ?, ?, ?, ?)")
+    stmt, err := tx.Prepare("insert into games1v1(PlayerA, PlayerB, ScoreA, ScoreB, winner, dt) values(?, ?, ?, ?, ?, ?)")
     if err != nil {
         return err
     }
     defer stmt.Close()
-    _, err = stmt.Exec(player1, player2, score1, score2, winner)
+    _, err = stmt.Exec(playerA, playerB, scoreA, scoreB, winner, dt)
     if err != nil {
         return err 
     }
     tx.Commit()
+
     return nil
 }
 
@@ -162,7 +202,7 @@ func GetAllGames1v1(db_name string) ([]Game1v1, error) {
     }
     defer db.Close()
 
-    rows, err := db.Query("select id, player1, player2, score1, score2, winner from games1v1")
+    rows, err := db.Query("select id, PlayerA, PlayerB, ScoreA, ScoreB, winner, dt from games1v1")
     if err != nil {
         return nil, err
     }
@@ -171,9 +211,12 @@ func GetAllGames1v1(db_name string) ([]Game1v1, error) {
     games := make([]Game1v1, 0)
     for rows.Next() {
         game := Game1v1{}
-        rows.Scan(&(game.Id), &(game.Player1), &(game.Player2), &(game.Score1), &(game.Score2), &(game.Winner))
+        var date_string string
+        rows.Scan(&(game.Id), &(game.PlayerA), &(game.PlayerB), &(game.ScoreA), &(game.ScoreB), &(game.Winner), &(date_string))
+        game.Timestamp, _ = convertDateStrToTime(date_string)
         games = append(games, game)
     }
+
     return games, nil
 }
 
@@ -185,7 +228,7 @@ func GetGame1v1ByID(db_name string, id int) (Game1v1, error) {
     }
     defer db.Close()
 
-    stmt, err := db.Prepare("select player1, player2, score1, score2, winner from games1v1 where id = ?")
+    stmt, err := db.Prepare("select PlayerA, PlayerB, ScoreA, ScoreB, winner, dt from games1v1 where id = ?")
     if err != nil {
         return Game1v1{}, err
     }
@@ -193,10 +236,12 @@ func GetGame1v1ByID(db_name string, id int) (Game1v1, error) {
 
     game := Game1v1{}
     game.Id = id
-    err = stmt.QueryRow(id).Scan(&(game.Player1), &(game.Player2), &(game.Score1), &(game.Score2), &(game.Winner))
+    var date_string string
+    err = stmt.QueryRow(id).Scan(&(game.PlayerA), &(game.PlayerB), &(game.ScoreA), &(game.ScoreB), &(game.Winner), &(date_string))
     if err != nil {
         return Game1v1{}, err 
     }
+    game.Timestamp, _ = convertDateStrToTime(date_string)
 
     return game, nil
 }

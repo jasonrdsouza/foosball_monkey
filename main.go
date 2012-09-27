@@ -6,6 +6,7 @@ import (
     "strconv"
     "github.com/jasonrdsouza/foosball_monkey/datastore"
     "code.google.com/p/gorilla/mux"
+    //"time"
 )
 
 const database = "foosball_monkey_datastore.db"
@@ -53,7 +54,7 @@ func getPlayerByID(w http.ResponseWriter, req *http.Request) {
 }
 
 func addGame1v1(w http.ResponseWriter, req *http.Request) {
-    err := datastore.AddGame1v1(database, 1, 2, 5, 10, 2)
+    err := datastore.AddGame1v1(database, 1, 2, 5, 10, "a", "2012-09-26")
     if err != nil {
         fmt.Fprintln(w, err)
     }
@@ -69,8 +70,8 @@ func getAllGames1v1(w http.ResponseWriter, req *http.Request) {
     
     output_string := ""
     for i, g := range games {
-        output_string += fmt.Sprintf("Game %d:\n\tID: %d\n\tPlayer 1: %d\n\tPlayer 2: %d\n\tScore 1: %d\n\tScore 2: %d\n\tWinner: %d\n", 
-                                    i, g.Id, g.Player1, g.Player2, g.Score1, g.Score2, g.Winner)
+        output_string += fmt.Sprintf("Game %d:\n\tID: %d\n\tPlayer A: %d\n\tPlayer B: %d\n\tScore A: %d\n\tScore B: %d\n\tWinner: %s\n\tPlayed: %s\n", 
+                                    i, g.Id, g.PlayerA, g.PlayerB, g.ScoreA, g.ScoreB, g.Winner, g.Timestamp)
     }
     fmt.Fprintln(w, output_string)
 }
@@ -82,8 +83,8 @@ func getGame1v1ByID(w http.ResponseWriter, req *http.Request) {
     if err != nil {
         fmt.Fprintln(w, err)
     }
-    output_string := fmt.Sprintf("1v1Game ID: %d\n\tPlayer 1: %d\n\tPlayer 2: %d\n\tScore 1: %d\n\tScore 2: %d\n\tWinner: %d\n", 
-                                        g.Id, g.Player1, g.Player2, g.Score1, g.Score2, g.Winner)
+    output_string := fmt.Sprintf("1v1Game ID: %d\n\tPlayer A: %d\n\tPlayer B: %d\n\tScore A: %d\n\tScore B: %d\n\tWinner: %s\n\tPlayed: %s\n", 
+                                        g.Id, g.PlayerA, g.PlayerB, g.ScoreA, g.ScoreB, g.Winner, g.Timestamp)
     fmt.Fprintln(w, output_string)
 }
 
