@@ -1,0 +1,39 @@
+{{ define "title" }}Foosball Monkey - Games{{ end }}
+
+{{ define "content" }}
+
+    <h1>List of Games</h1>
+
+    <table class="table table-striped table-bordered table-hover">
+        <caption>Table of all the known games</caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Offender A</th>
+                <th>Defender A</th>
+                <th>Offender B</th>
+                <th>Defender B</th>
+                <th>Score A</th>
+                <th>Score B</th>
+                <th>Winner</th>
+                <th>Date Played</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{range .}}
+            <tr>
+                <td>{{.Id}}</td>
+                <td>{{.OffenderA}}</td>
+                <td>{{.DefenderA}}</td>
+                <td>{{.OffenderB}}</td>
+                <td>{{.DefenderB}}</td>
+                <td>{{.ScoreA}}</td>
+                <td>{{.ScoreB}}</td>
+                <td>{{.Winner}}</td>
+                <td>{{.Timestamp}}</td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+
+{{ end }}

@@ -1,0 +1,36 @@
+{{ define "title" }}Foosball Monkey - Add Game{{ end }}
+
+{{ define "content" }}
+    
+    <h1>Add Foosball Game</h1>
+
+    <form class="form-horizontal" action="/games/addHandler" method="post">
+        <legend>Add Foosball Game</legend>
+        <label>Offender A</label>
+        <input type="number" placeholder="Player ID…" name="OffenderA">
+        <span class="help-block">Please type the ID of the offensive player on team A.</span>
+        <label>Defender A</label>
+        <input type="number" placeholder="Player ID…" name="DefenderA">
+        <span class="help-block">Please type the ID of the defensive player on team A.</span>
+        <label>Offender B</label>
+        <input type="number" placeholder="Player ID…" name="OffenderB">
+        <span class="help-block">Please type the ID of the offensive player on team B.</span>
+        <label>Defender B</label>
+        <input type="number" placeholder="Player ID…" name="DefenderB">
+        <span class="help-block">Please type the ID of the defensive player on team B.</span>
+        <label>Ending Score for Team A</label>
+        <input type="number" name="ScoreA">
+        <span class="help-block">Team A's final score.</span>
+        <label>Ending Score for Team B</label>
+        <input type="number" name="ScoreB">
+        <span class="help-block">Team B's final score.</span>
+        <label>Winning Team</label>
+        <input type="text" name="Winner">
+        <span class="help-block">Please choose the team that won the game.</span>
+        <label>Date and Time the game was played</label>
+        <input type="text" name="Timestamp">
+        <span class="help-block">Fix this to only allow a specific date format.</span>
+        <input type="submit" class="btn" value="Submit">
+    </form>
+
+{{ end }}

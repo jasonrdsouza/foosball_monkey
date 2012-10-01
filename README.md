@@ -5,11 +5,16 @@ Webapp to track foosball things.
 
 Todo
 ----
-1. make a way to interactively add games/ players
-    - html forms
-    - form validations?
+1. Add game/ player form
+    - validations
+        - change the game one to be a dropdown list of players
+        - ensure the score is a number
+        - winner dropdown (A or B)
+        - Time input
 2. backup db functionality
     - copy file somewhere else (dropbox?)
+3. JSON api
+    - use the JSON marshalling functionality
 
 
 Keeps track of:
