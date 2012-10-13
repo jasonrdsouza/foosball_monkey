@@ -1,5 +1,11 @@
 {{ define "title" }}Foosball Monkey - Games{{ end }}
 
+{{ define "menu" }}
+    <li><a href="/">Home</a></li>
+    <li><a href="/players">Players</a></li>
+    <li class="active"><a href="/games">Games</a></li>
+{{ end }}
+
 {{ define "content" }}
 
     <h1>List of Games</h1>
@@ -19,10 +25,10 @@
                 <th>Date Played</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody data-provides="rowlink">
             {{range .}}
             <tr>
-                <td>{{.Id}}</td>
+                <td><a href="/games/{{.Id}}">{{.Id}}</a></td>
                 <td>{{.OffenderA}}</td>
                 <td>{{.DefenderA}}</td>
                 <td>{{.OffenderB}}</td>

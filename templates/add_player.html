@@ -1,14 +1,26 @@
 {{ define "title" }}Foosball Monkey - Add Player{{ end }}
 
+{{ define "menu" }}
+    <li><a href="/">Home</a></li>
+    <li class="active"><a href="/players">Players</a></li>
+    <li><a href="/games">Games</a></li>
+{{ end }}
+
 {{ define "content" }}
     
     <h1>Add Foosball Player</h1>
 
     <form class="form-horizontal" action="/players/addHandler" method="post">
         <legend>Add Foosball Player</legend>
+        
         <label>Player name</label>
         <input type="text" placeholder="Type name…" name="Name">
         <span class="help-block">Please type full name.</span>
+        
+        <label>Player email</label>
+        <input type="text" placeholder="Type email address…" name="Email">
+        <span class="help-block">Please type your email address. This is used for gravatar support.</span>
+        
         <label>Tagline</label>
         <input type="text" placeholder="Witty tagline…" name="Tagline">
         <span class="help-block">Please type a tagline for yourself.</span>

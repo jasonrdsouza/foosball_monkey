@@ -5,6 +5,7 @@ import (
     "net/http"
     "strconv"
     "html/template"
+    "encoding/json"
     "github.com/jasonrdsouza/foosball_monkey/datastore"
     "code.google.com/p/gorilla/mux"
     "code.google.com/p/gorilla/schema"
@@ -51,9 +52,9 @@ func initializeDB() {
 }
 
 func addPlayerHandler(w http.ResponseWriter, req *http.Request) {
-    err := datastore.AddPlayer(database, req.FormValue("Name"), req.FormValue("Tagline"))
+    err := datastore.AddPlayer(database, req.FormValue("Name"), req.FormValue("Email"), req.FormValue("Tagline"))
     if err != nil {
-        fmt.Fprintln(w, err)
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
     http.Redirect(w, req, "/players/add", http.StatusCreated)
 }
@@ -64,37 +65,42 @@ func addPlayer(w http.ResponseWriter, req *http.Request) {
     }
 }
 
-func getAllPlayersTXT(w http.ResponseWriter, req *http.Request) {
+func getAllPlayersJSON(w http.ResponseWriter, req *http.Request) {
     players, err := datastore.GetAllPlayers(database)
     if err != nil {
-        fmt.Fprintln(w, err)
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
-    output_string := ""
-    for _, p := range players {
-        output_string += fmt.Sprintf("Player %d: %s\n\tTagline: %s\n", p.Id, p.Name, p.Tagline)
+
+    players_json, err := json.Marshal(players)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
-    fmt.Fprintln(w, output_string)
+    fmt.Fprintln(w, string(players_json))
 }
 
 func getAllPlayers(w http.ResponseWriter, req *http.Request) {
     players, err := datastore.GetAllPlayers(database)
     if err != nil {
-        fmt.Fprintln(w, err)
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
     if err := players_html.Execute(w, players); err != nil {
-      http.Error(w, err.Error(), http.StatusInternalServerError)
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
 }
 
-func getPlayerByID(w http.ResponseWriter, req *http.Request) {
+func getPlayerByIdJSON(w http.ResponseWriter, req *http.Request) {
     vars := mux.Vars(req)
     id, _ := strconv.Atoi(vars["id"])
     p, err := datastore.GetPlayerByID(database, id)
     if err != nil {
-        fmt.Fprintln(w, err)
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
-    output_string := fmt.Sprintf("Player %d: %s\n\tTagline: %s\n", p.Id, p.Name, p.Tagline)
-    fmt.Fprintln(w, output_string)
+
+    player_json, err := json.Marshal(p)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+    }
+    fmt.Fprintln(w, string(player_json))
 }
 
 func addGameHandler(w http.ResponseWriter, req *http.Request) {
@@ -116,9 +122,9 @@ func addGameHandler(w http.ResponseWriter, req *http.Request) {
                                        winner, 
                                        timestamp)
     if err != nil {
-        fmt.Fprintln(w, err)
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
-    http.Redirect(w, req, "/games/add", http.StatusCreated)
+    http.Redirect(w, req, "/games/add", http.StatusFound)
 }
 
 func addGame(w http.ResponseWriter, req *http.Request) {
@@ -127,56 +133,60 @@ func addGame(w http.ResponseWriter, req *http.Request) {
     }
 }
 
-func getAllGamesTXT(w http.ResponseWriter, req *http.Request) {
-    var games []datastore.Game
-    games, err := datastore.GetAllGames(database)
-    if err != nil {
-        fmt.Fprintln(w, err)
-    }
-    
-    output_string := ""
-    for i, g := range games {
-        output_string += fmt.Sprintf("Game %d:\n\tID: %d\n\tOffender A: %d\n\tDefender A: %d\n\tOffender B: %d\n\tDefender B: %d\n\tScore A: %d\n\tScore B: %d\n\tWinner: %s\n\tPlayed: %s\n", 
-                                    i, g.Id, g.OffenderA, g.DefenderA, g.OffenderB, g.DefenderB, g.ScoreA, g.ScoreB, g.Winner, g.Timestamp)
-    }
-    fmt.Fprintln(w, output_string)
-}
-
 func getAllGames(w http.ResponseWriter, req *http.Request) {
     var games []datastore.Game
     games, err := datastore.GetAllGames(database)
     if err != nil {
-        fmt.Fprintln(w, err)
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
     if err := games_html.Execute(w, games); err != nil {
       http.Error(w, err.Error(), http.StatusInternalServerError)
     }
 }
 
-func getGameByID(w http.ResponseWriter, req *http.Request) {
+func getAllGamesJSON(w http.ResponseWriter, req *http.Request) {
+    var games []datastore.Game
+    games, err := datastore.GetAllGames(database)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+    }
+    
+    games_json, err := json.Marshal(games)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+    }
+    fmt.Fprintln(w, string(games_json))
+}
+
+func getGameByIdJSON(w http.ResponseWriter, req *http.Request) {
     vars := mux.Vars(req)
     id, _ := strconv.Atoi(vars["id"])
     g, err := datastore.GetGameByID(database, id)
     if err != nil {
-        fmt.Fprintln(w, err)
+        http.Error(w, err.Error(), http.StatusInternalServerError)
     }
-    output_string := fmt.Sprintf("Game ID: %d\n\tOffender A: %d\n\tDefender A: %d\n\tOffender B: %d\n\tDefender B: %d\n\tScore A: %d\n\tScore B: %d\n\tWinner: %s\n\tPlayed: %s\n", 
-                                        g.Id, g.OffenderA, g.DefenderA, g.OffenderB, g.DefenderB, g.ScoreA, g.ScoreB, g.Winner, g.Timestamp)
-    fmt.Fprintln(w, output_string)
+    
+    game_json, err := json.Marshal(g)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+    }
+    fmt.Fprintln(w, string(game_json))
 }
 
 
 
 func main() {
-    //initializeDB()
+    //initializeDB()  //uncomment this to remake the database
     r := mux.NewRouter()
     r.HandleFunc("/", home)
     r.HandleFunc("/players", getAllPlayers)
-    r.HandleFunc("/players/{id:[0-9]+}", getPlayerByID)
+    r.HandleFunc("/players.json", getAllPlayersJSON)
+    r.HandleFunc("/players/{id:[0-9]+}.json", getPlayerByIdJSON)
     r.HandleFunc("/players/add", addPlayer)
     r.HandleFunc("/players/addHandler", addPlayerHandler)
     r.HandleFunc("/games", getAllGames)
-    r.HandleFunc("/games/{id:[0-9]+}", getGameByID)
+    r.HandleFunc("/games.json", getAllGamesJSON)
+    r.HandleFunc("/games/{id:[0-9]+}.json", getGameByIdJSON)
     r.HandleFunc("/games/add", addGame)
     r.HandleFunc("/games/addHandler", addGameHandler)
     http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))

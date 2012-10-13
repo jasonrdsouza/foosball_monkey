@@ -8,7 +8,9 @@ import (
     "strings"
     "strconv"
     "errors"
-    //"fmt"
+    "crypto/md5"
+    "io"
+    "fmt"
 )
 
 /*
@@ -22,6 +24,8 @@ type Datastore interface {
 type Player struct {
     Id int
     Name string
+    Email string
+    Email_md5 string
     Tagline string
 }
 
@@ -49,7 +53,7 @@ func CreateNewDB(db_name string) error {
     defer db.Close()
 
     sqls := []string{
-        "create table players (id integer not null primary key, name text, tagline text)",
+        "create table players (id integer not null primary key, name text, email text, email_md5 text, tagline text)",
         "create table games (id integer not null primary key, offenderA integer, defenderA integer, offenderB integer, defenderB integer, scoreA integer, scoreB integer, winner string, dt datetime)",
     }
     for _, sql := range sqls {
@@ -77,7 +81,7 @@ func convertDateStrToTime(date_string string) (time.Time, error) {
     return time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC), nil
 }
 
-func AddPlayer(db_name string, player_name string, tagline string) (error) {
+func AddPlayer(db_name string, player_name string, email string, tagline string) (error) {
     db_name = "./" + db_name
     db, err := sql.Open("sqlite3", db_name)
     if err != nil {
@@ -90,12 +94,18 @@ func AddPlayer(db_name string, player_name string, tagline string) (error) {
     if err != nil {
         return err
     }
-    stmt, err := tx.Prepare("insert into players(name, tagline) values(?, ?)")
+    stmt, err := tx.Prepare("insert into players(name, email, email_md5, tagline) values(?, ?, ?, ?)")
     if err != nil {
         return err
     }
     defer stmt.Close()
-    _, err = stmt.Exec(player_name, tagline)
+    
+    //generate email md5 value
+    h := md5.New()
+    io.WriteString(h, email)
+    email_md5 := fmt.Sprintf("%x", h.Sum(nil))
+    
+    _, err = stmt.Exec(player_name, email, email_md5, tagline)
     if err != nil {
         return err 
     }
@@ -111,7 +121,7 @@ func GetAllPlayers(db_name string) ([]Player, error) {
     }
     defer db.Close()
 
-    rows, err := db.Query("select id, name, tagline from players")
+    rows, err := db.Query("select id, name, email, email_md5, tagline from players")
     if err != nil {
         return nil, err
     }
@@ -120,7 +130,7 @@ func GetAllPlayers(db_name string) ([]Player, error) {
     players := make([]Player, 0)
     for rows.Next() {
         player := Player{}
-        rows.Scan(&(player.Id), &(player.Name), &(player.Tagline))
+        rows.Scan(&(player.Id), &(player.Name), &(player.Email), &(player.Email_md5), &(player.Tagline))
         players = append(players, player)
     }
     return players, nil
@@ -134,19 +144,19 @@ func GetPlayerByID(db_name string, id int) (Player, error) {
     }
     defer db.Close()
 
-    stmt, err := db.Prepare("select name, tagline from players where id = ?")
+    stmt, err := db.Prepare("select name, email, email_md5, tagline from players where id = ?")
     if err != nil {
         return Player{}, err
     }
     defer stmt.Close()
 
-    var name, tagline string
-    err = stmt.QueryRow(id).Scan(&name, &tagline)
+    var name, email, email_md5, tagline string
+    err = stmt.QueryRow(id).Scan(&name, &email, &email_md5, &tagline)
     if err != nil {
         return Player{}, err 
     }
 
-    fetched_player := Player{id, name, tagline}
+    fetched_player := Player{id, name, email, email_md5, tagline}
     return fetched_player, nil
 }
 

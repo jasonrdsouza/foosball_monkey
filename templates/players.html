@@ -1,5 +1,11 @@
 {{ define "title" }}Foosball Monkey - Players{{ end }}
 
+{{ define "menu" }}
+    <li><a href="/">Home</a></li>
+    <li class="active"><a href="/players">Players</a></li>
+    <li><a href="/games">Games</a></li>
+{{ end }}
+
 {{ define "content" }}
     
     <h1>List of Players</h1>
@@ -10,14 +16,17 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Email</th>
                 <th>Tagline</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody data-provides="rowlink">
             {{range .}}
             <tr>
-                <td>{{.Id}}</td>
+                <td><a href="/players/{{.Id}}">{{.Id}}</a></td>
+                <td><img src="http://www.gravatar.com/avatar/{{.Email_md5}}" class="img-rounded"></td>
                 <td>{{.Name}}</td>
+                <td>{{.Email}}</td>
                 <td>{{.Tagline}}</td>
             </tr>
             {{end}}

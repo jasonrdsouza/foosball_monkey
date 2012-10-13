@@ -20,9 +20,7 @@
                     <a class="brand" href="/">Foosball Monkey</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
-                            <li class="active"><a href="/">Home</a></li>
-                            <li><a href="/players">Players</a></li>
-                            <li><a href="/games">Games</a></li>
+                            {{ template "menu" . }}
                         </ul>
                         <form class="navbar-form pull-right">
                             <input class="span2" type="text" placeholder="Email">

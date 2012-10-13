@@ -13,8 +13,9 @@ Todo
         - Time input
 2. backup db functionality
     - copy file somewhere else (dropbox?)
-3. JSON api
-    - use the JSON marshalling functionality
+3. GetPlayerById html style
+4. GetGameById html style
+5. Add the foosball info to the index
 
 
 Keeps track of:
