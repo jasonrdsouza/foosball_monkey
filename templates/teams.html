@@ -1,35 +1,32 @@
-{{ define "title" }}Foosball Monkey - Queue{{ end }}
+{{ define "title" }}Foosball Monkey - Teams{{ end }}
 
 {{ define "menu" }}
     <li><a href="/">Home</a></li>
     <li><a href="/players">Players</a></li>
     <li><a href="/games">Games</a></li>
-    <li><a href="/teams">Teams</a></li>
-    <li class="active"><a href="/queue">Queue</a></li>
+    <li class="active"><a href="/teams">Teams</a></li>
+    <li><a href="/queue">Queue</a></li>
 {{ end }}
 
 {{ define "content" }}
     
-    <h1>Foosball Table Queue</h1>
+    <h1>List of Teams</h1>
 
     <table class="table table-striped table-bordered table-hover">
-        <caption>Queue of people waiting to play foosball</caption>
+        <caption>Table of all known teams with foosball players</caption>
         <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Tagline</th>
+                <th>Members</th>
             </tr>
         </thead>
         <tbody data-provides="rowlink">
             {{range .}}
             <tr>
-                <td><a href="/players/{{.Id}}">{{.Id}}</a></td>
-                <td><img src="http://www.gravatar.com/avatar/{{.Email_md5}}" class="img-rounded"></td>
+                <td><a href="/teams/{{.Id}}">{{.Id}}</a></td>
                 <td>{{.Name}}</td>
-                <td>{{.Email}}</td>
-                <td>{{.Tagline}}</td>
+                <td>String of members here!</td>
             </tr>
             {{end}}
         </tbody>

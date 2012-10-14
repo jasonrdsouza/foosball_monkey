@@ -4,6 +4,7 @@
     <li><a href="/">Home</a></li>
     <li class="active"><a href="/players">Players</a></li>
     <li><a href="/games">Games</a></li>
+    <li><a href="/teams">Teams</a></li>
     <li><a href="/queue">Queue</a></li>
 {{ end }}
 
@@ -25,6 +26,11 @@
         <label>Tagline</label>
         <input type="text" placeholder="Witty tagline…" name="Tagline">
         <span class="help-block">Please type a tagline for yourself.</span>
+
+        <label>Team</label>
+        <input type="number" placeholder="Your team's ID" name="Team">
+        <span class="help-block">Please choose which team you are on.</span>
+        
         <input type="submit" class="btn" value="Submit">
     </form>
 

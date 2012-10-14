@@ -5,16 +5,20 @@ Webapp to track foosball things.
 
 Todo
 ----
-1. Add game/ player form
-    - validations
-        - change the game one to be a dropdown list of players
-        - ensure the score is a number
-        - winner dropdown (A or B)
-        - Time input
-2. backup db functionality
+- Add game/ player form validations
+    - change the game one to be a dropdown list of players
+    - ensure the score is a number
+    - winner dropdown (A or B)
+    - Time input
+- backup db functionality
     - copy file somewhere else (dropbox?)
-3. GetPlayerById html style
-4. GetGameById html style
+- Change the redirect after adding a player/game/team
+    - redirect to a page that acknowledge recieving the input
+    - use a bootstrap banner thing?
+- GetPlayerById html style
+- GetGameById html style
+- GetTeamById html style
+- Get site search to work
 
 
 Keeps track of:

@@ -1,0 +1,25 @@
+{{ define "title" }}Foosball Monkey - Add Team{{ end }}
+
+{{ define "menu" }}
+    <li><a href="/">Home</a></li>
+    <li><a href="/players">Players</a></li>
+    <li><a href="/games">Games</a></li>
+    <li class="active"><a href="/teams">Teams</a></li>
+    <li><a href="/queue">Queue</a></li>
+{{ end }}
+
+{{ define "content" }}
+    
+    <h1>Add Team</h1>
+
+    <form class="form-horizontal" action="/teams/addHandler" method="post">
+        <legend>Add Team</legend>
+        
+        <label>Team name</label>
+        <input type="text" placeholder="Type name…" name="Name">
+        <span class="help-block">Please type team name.</span>
+        
+        <input type="submit" class="btn" value="Submit">
+    </form>
+
+{{ end }}
