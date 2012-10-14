@@ -4,6 +4,7 @@
     <li class="active"><a href="/">Home</a></li>
     <li><a href="/players">Players</a></li>
     <li><a href="/games">Games</a></li>
+    <li><a href="/queue">Queue</a></li>
 {{ end }}
 
 {{ define "content" }}
@@ -18,17 +19,26 @@
 
     <h1>Welcome To Foosball Monkey</h1>
 
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p> Built to keep track of foosball games, statistics, rankings, and more. </p>
+        <br>
+        <br>
 
-    <ul class="list">
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-        <li>Item 4</li>
-    </ul>
+        <div class="row">
+            <div class="span4">
+                <h2>Latest Games</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div>
+            <div class="span4">
+                <h2>Player Rankings</h2>
+                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                <p><a class="btn" href="#">View details &raquo;</a></p>
+            </div>
+            <div class="span4">
+                <h2>Table Availability</h2>
+                <p>This feature is currently unavailable. Once the "foosball webcam" has been sucessfully bought, installed, and configured, you will be able to view it by clicking the button below. Alternatively, if enough people agree to use it, the queue functionality can be used to reserve the table.</p>
+                <p><a class="btn" href="#">View webcam &raquo;</a> <a class="btn" href="/queue">View queue &raquo;</a></p>
+            </div>
+        </div>
+
 {{ end }}

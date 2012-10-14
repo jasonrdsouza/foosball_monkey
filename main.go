@@ -37,6 +37,10 @@ var addgame_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/add_game.html",
 ))
+var queue_html = template.Must(template.ParseFiles(
+  "templates/_base.html",
+  "templates/queue.html",
+))
 
 func home(w http.ResponseWriter, req *http.Request) {
     if err := index_html.Execute(w, nil); err != nil {
@@ -173,6 +177,13 @@ func getGameByIdJSON(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, string(game_json))
 }
 
+func getQueue(w http.ResponseWriter, req *http.Request) {
+    fmt.Fprintln(w, "Implement this queue functionality")
+}
+
+func getQueueJSON(w http.ResponseWriter, req *http.Request) {
+    fmt.Fprintln(w, "Implement this JSON queue functionality")
+}
 
 
 func main() {
@@ -189,6 +200,8 @@ func main() {
     r.HandleFunc("/games/{id:[0-9]+}.json", getGameByIdJSON)
     r.HandleFunc("/games/add", addGame)
     r.HandleFunc("/games/addHandler", addGameHandler)
+    r.HandleFunc("/queue", getQueue)
+    r.HandleFunc("/queue.json", getQueueJSON)
     http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
     http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
     http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("img"))))
