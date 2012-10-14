@@ -5,6 +5,7 @@
     <li><a href="/players">Players</a></li>
     <li><a href="/games">Games</a></li>
     <li><a href="/teams">Teams</a></li>
+    <li><a href="/rankings">Rankings</a></li>
     <li class="active"><a href="/queue">Queue</a></li>
 {{ end }}
 
@@ -12,24 +13,28 @@
     
     <h1>Foosball Table Queue</h1>
 
+    <ul class="pager">
+        <li><a href="/queue/add">Add to Queue</a></li>
+        <li><a href="/queue/delete">Delete from Queue</a></li>
+    </ul>
+
     <table class="table table-striped table-bordered table-hover">
         <caption>Queue of people waiting to play foosball</caption>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Tagline</th>
+                <th>Header1</th>
+                <th>Header2</th>
+                <th>Header3</th>
+                <th>Header4</th>
             </tr>
         </thead>
         <tbody data-provides="rowlink">
             {{range .}}
             <tr>
-                <td><a href="/players/{{.Id}}">{{.Id}}</a></td>
-                <td><img src="http://www.gravatar.com/avatar/{{.Email_md5}}" class="img-rounded"></td>
-                <td>{{.Name}}</td>
-                <td>{{.Email}}</td>
-                <td>{{.Tagline}}</td>
+                <td>implement</td>
+                <td>implement2</td>
+                <td>implement3</td>
+                <td>implement4</td>
             </tr>
             {{end}}
         </tbody>

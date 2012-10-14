@@ -20,6 +20,13 @@ Todo
 - GetGameById html style
 - GetTeamById html style
 - Get site search to work
+- Implement delete functionality
+    - for players
+    - for games
+    - for teams
+    - for queue
+- Implement the queue
+- Implement the rankings
 
 
 Functionality
@@ -32,6 +39,7 @@ Functionality
         - defensive ranking?
         - offensive ranking
     - score of games played
+    - number of games played
     - frequency of position played
         - offense vs defense?
 - Integrate with third party services

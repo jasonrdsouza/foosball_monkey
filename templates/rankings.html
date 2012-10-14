@@ -1,0 +1,33 @@
+{{ define "title" }}Foosball Monkey - Rankings{{ end }}
+
+{{ define "menu" }}
+    <li><a href="/">Home</a></li>
+    <li><a href="/players">Players</a></li>
+    <li><a href="/games">Games</a></li>
+    <li><a href="/teams">Teams</a></li>
+    <li class="active"><a href="/rankings">Rankings</a></li>
+    <li><a href="/queue">Queue</a></li>
+{{ end }}
+
+{{ define "content" }}
+    
+    <h1>Foosball Rankings</h1>
+
+    <p>Give an explanation of the rankings here.</p>
+
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#player-rankings" data-toggle="tab">Player Rankings</a></li>
+            <li><a href="#team-rankings" data-toggle="tab">Team Rankings</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="player-rankings">
+                <p>Put all rankings associated with a specific player here...</p>
+            </div>
+            <div class="tab-pane" id="team-rankings">
+                <p>Put all rankings associated with a specific team here...</p>
+            </div>
+        </div>
+    </div>
+
+{{ end }}

@@ -37,10 +37,6 @@ var addgame_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/add_game.html",
 ))
-var queue_html = template.Must(template.ParseFiles(
-  "templates/_base.html",
-  "templates/queue.html",
-))
 var teams_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/teams.html",
@@ -48,6 +44,14 @@ var teams_html = template.Must(template.ParseFiles(
 var addteam_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/add_team.html",
+))
+var queue_html = template.Must(template.ParseFiles(
+  "templates/_base.html",
+  "templates/queue.html",
+))
+var rankings_html = template.Must(template.ParseFiles(
+  "templates/_base.html",
+  "templates/rankings.html",
 ))
 
 
@@ -205,14 +209,6 @@ func getGameByIdJSON(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, string(game_json))
 }
 
-func getQueue(w http.ResponseWriter, req *http.Request) {
-    fmt.Fprintln(w, "Implement this queue functionality")
-}
-
-func getQueueJSON(w http.ResponseWriter, req *http.Request) {
-    fmt.Fprintln(w, "Implement this JSON queue functionality")
-}
-
 func getAllTeams(w http.ResponseWriter, req *http.Request) {
     var teams []datastore.Team
     teams, err := datastore.GetAllTeams(database)
@@ -245,6 +241,7 @@ func getAllTeamsJSON(w http.ResponseWriter, req *http.Request) {
 func addTeam(w http.ResponseWriter, req *http.Request) {
     if err := addteam_html.Execute(w, nil); err != nil {
       http.Error(w, err.Error(), http.StatusInternalServerError)
+      return
     }
 }
 
@@ -276,6 +273,28 @@ func getTeamByIdJSON(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, string(team_json))
 }
 
+func getQueue(w http.ResponseWriter, req *http.Request) {
+    if err := queue_html.Execute(w, nil); err != nil {
+      http.Error(w, err.Error(), http.StatusInternalServerError)
+      return
+    }
+}
+
+func getQueueJSON(w http.ResponseWriter, req *http.Request) {
+    fmt.Fprintln(w, "Implement this JSON queue functionality")
+}
+
+func getRankings(w http.ResponseWriter, req *http.Request) {
+    if err := rankings_html.Execute(w, nil); err != nil {
+      http.Error(w, err.Error(), http.StatusInternalServerError)
+      return
+    }
+}
+
+func getRankingsJSON(w http.ResponseWriter, req *http.Request) {
+    fmt.Fprintln(w, "Implement this JSON ranking functionality")
+}
+
 
 
 func main() {
@@ -301,6 +320,8 @@ func main() {
     r.HandleFunc("/teams/addHandler", addTeamHandler)
     r.HandleFunc("/queue", getQueue)
     r.HandleFunc("/queue.json", getQueueJSON)
+    r.HandleFunc("/rankings", getRankings)
+    r.HandleFunc("/rankings.json", getRankingsJSON)
 
     http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
     http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
