@@ -12,14 +12,44 @@
     
     <h1>Add Team</h1>
 
-    <form class="form-horizontal" action="/teams/addHandler" method="post">
-        <legend>Add Team</legend>
-        
-        <label>Team name</label>
-        <input type="text" placeholder="Type name…" name="Name">
-        <span class="help-block">Please type team name.</span>
-        
-        <input type="submit" class="btn" value="Submit">
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#addteam-form').validate(
+        {
+            rules: {
+                Name: {
+                    minlength: 2,
+                    required: true
+                },
+            },
+            highlight: function(label) {
+                $(label).closest('.control-group').addClass('error');
+            },
+            success: function(label) {
+                $(label)
+                .text('OK!').addClass('valid')
+                .closest('.control-group').addClass('success');
+            }
+        });
+    });
+</script>
+
+    <form class="form-horizontal" id="addteam-form" action="/teams/addHandler" method="post">
+        <fieldset>
+            <legend>Add Team</legend>
+            
+            <div class="control-group">
+                <label class="control-label" for="name">Team Name</label>
+                <div class="controls">
+                    <input type="text" name="name" id="name" placeholder="Type the team name…">
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+                <button type="reset" class="btn" value="Reset">Cancel</button>
+            </div>
+        </fieldset>
     </form>
 
 {{ end }}

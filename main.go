@@ -67,13 +67,13 @@ func initializeDB() {
 }
 
 func addPlayerHandler(w http.ResponseWriter, req *http.Request) {
-    team_id, _ := strconv.Atoi(req.FormValue("Team"))
-    err := datastore.AddPlayer(database, req.FormValue("Name"), req.FormValue("Email"), req.FormValue("Tagline"), team_id)
+    team_id, _ := strconv.Atoi(req.FormValue("team"))
+    err := datastore.AddPlayer(database, req.FormValue("name"), req.FormValue("email"), req.FormValue("tagline"), team_id)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
     }
-    http.Redirect(w, req, "/players/add", http.StatusCreated)
+    http.Redirect(w, req, "/players/add", http.StatusFound)
 }
 
 func addPlayer(w http.ResponseWriter, req *http.Request) {
@@ -128,14 +128,14 @@ func getPlayerByIdJSON(w http.ResponseWriter, req *http.Request) {
 }
 
 func addGameHandler(w http.ResponseWriter, req *http.Request) {
-    offenderA, _ := strconv.Atoi(req.FormValue("OffenderA"))
-    defenderA, _ := strconv.Atoi(req.FormValue("DefenderA"))
-    offenderB, _ := strconv.Atoi(req.FormValue("OffenderB"))
-    defenderB, _ := strconv.Atoi(req.FormValue("DefenderB"))
-    scoreA, _ := strconv.Atoi(req.FormValue("ScoreA"))
-    scoreB, _ := strconv.Atoi(req.FormValue("ScoreB"))
-    winner := req.FormValue("Winner")
-    timestamp := req.FormValue("Timestamp")
+    offenderA, _ := strconv.Atoi(req.FormValue("offenderA"))
+    defenderA, _ := strconv.Atoi(req.FormValue("defenderA"))
+    offenderB, _ := strconv.Atoi(req.FormValue("offenderB"))
+    defenderB, _ := strconv.Atoi(req.FormValue("defenderB"))
+    scoreA, _ := strconv.Atoi(req.FormValue("scoreA"))
+    scoreB, _ := strconv.Atoi(req.FormValue("scoreB"))
+    winner := req.FormValue("winner")
+    timestamp := req.FormValue("timestamp")
 
     err := datastore.AddGame(database, offenderA, 
                                        defenderA, 
@@ -249,7 +249,7 @@ func addTeam(w http.ResponseWriter, req *http.Request) {
 }
 
 func addTeamHandler(w http.ResponseWriter, req *http.Request) {
-    name := req.FormValue("Name")
+    name := req.FormValue("name")
 
     err := datastore.AddTeam(database, name)
     if err != nil {

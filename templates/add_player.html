@@ -12,26 +12,43 @@
     
     <h1>Add Foosball Player</h1>
 
-    <form class="form-horizontal" action="/players/addHandler" method="post">
-        <legend>Add Foosball Player</legend>
-        
-        <label>Player name</label>
-        <input type="text" placeholder="Type name…" name="Name">
-        <span class="help-block">Please type full name.</span>
-        
-        <label>Player email</label>
-        <input type="text" placeholder="Type email address…" name="Email">
-        <span class="help-block">Please type your email address. This is used for gravatar support.</span>
-        
-        <label>Tagline</label>
-        <input type="text" placeholder="Witty tagline…" name="Tagline">
-        <span class="help-block">Please type a tagline for yourself.</span>
+    <form class="form-horizontal" id="addplayer-form" action="/players/addHandler" method="post">
+        <fieldset>
+            <legend>Add Foosball Player</legend>
+            
+            <div class="control-group">
+                <label class="control-label" for="name">Player name</label>
+                <div class="controls">
+                    <input type="text" name="name" id="name" placeholder="Please type full name">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label" for="email">Player email</label>
+                <div class="controls">
+                    <input type="text" name="email" id="email" placeholder="Used for gravatar support">
+                </div>
+            </div>
 
-        <label>Team</label>
-        <input type="number" placeholder="Your team's ID" name="Team">
-        <span class="help-block">Please choose which team you are on.</span>
-        
-        <input type="submit" class="btn" value="Submit">
+            <div class="control-group">
+                <label class="control-label" for="tagline">Tagline</label>
+                <div class="controls">
+                    <input type="text" name="tagline" id="tagline" placeholder="Short statement about yourself">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="team">Team</label>
+                <div class="controls">
+                    <input type="number" name="team" id="team" placeholder="Your team's ID">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+                <button type="reset" class="btn" value="Reset">Cancel</button>
+            </div>
+        </fieldset>
     </form>
 
 {{ end }}

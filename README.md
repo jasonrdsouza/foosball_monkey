@@ -10,6 +10,7 @@ Todo
     - ensure the score is a number
     - winner dropdown (A or B)
     - Time input
+    - use Bootstrap functionality
 - backup db functionality
     - copy file somewhere else (dropbox?)
 - Change the redirect after adding a player/game/team
@@ -21,15 +22,22 @@ Todo
 - Get site search to work
 
 
-Keeps track of:
+Functionality
+-------------
 - Players
-    - name
     - wins/ losses
-    - bio?
-    - picture?
+    - ranking
+        - within team
+        - overall
+        - defensive ranking?
+        - offensive ranking
     - score of games played
     - frequency of position played
         - offense vs defense?
-- Instructions on how to play/ other info
-    - http://www.foosmanchu.com/
-    - learning-foosball.txt
+- Integrate with third party services
+    - similar to how I did with gravatar
+
+
+Ranking
+-------
+- algo for rank that takes amount of games played into account

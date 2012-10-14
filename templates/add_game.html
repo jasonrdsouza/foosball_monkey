@@ -12,33 +12,71 @@
     
     <h1>Add Foosball Game</h1>
 
-    <form class="form-horizontal" action="/games/addHandler" method="post">
-        <legend>Add Foosball Game</legend>
-        <label>Offender A</label>
-        <input type="number" placeholder="Player ID…" name="OffenderA">
-        <span class="help-block">Please type the ID of the offensive player on team A.</span>
-        <label>Defender A</label>
-        <input type="number" placeholder="Player ID…" name="DefenderA">
-        <span class="help-block">Please type the ID of the defensive player on team A.</span>
-        <label>Offender B</label>
-        <input type="number" placeholder="Player ID…" name="OffenderB">
-        <span class="help-block">Please type the ID of the offensive player on team B.</span>
-        <label>Defender B</label>
-        <input type="number" placeholder="Player ID…" name="DefenderB">
-        <span class="help-block">Please type the ID of the defensive player on team B.</span>
-        <label>Ending Score for Team A</label>
-        <input type="number" name="ScoreA">
-        <span class="help-block">Team A's final score.</span>
-        <label>Ending Score for Team B</label>
-        <input type="number" name="ScoreB">
-        <span class="help-block">Team B's final score.</span>
-        <label>Winning Team</label>
-        <input type="text" name="Winner">
-        <span class="help-block">Please choose the team that won the game.</span>
-        <label>Date and Time the game was played</label>
-        <input type="text" name="Timestamp">
-        <span class="help-block">Fix this to only allow a specific date format.</span>
-        <input type="submit" class="btn" value="Submit">
+    <form class="form-horizontal" id="addgame-form" action="/games/addHandler" method="post">
+        <fieldset>
+            <legend>Add Foosball Game</legend>
+            
+            <div class="control-group">
+                <label class="control-label" for="offenderA">Offender A</label>
+                <div class="controls">
+                    <input type="number" name="offenderA" id="offenderA" placeholder="Please type Offender A's ID">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label" for="defenderA">Defender A</label>
+                <div class="controls">
+                    <input type="number" name="defenderA" id="defenderA" placeholder="Please type Defender A's ID">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="offenderB">Offender B</label>
+                <div class="controls">
+                    <input type="number" name="offenderB" id="offenderB" placeholder="Please type Offender B's ID">
+                </div>
+            </div>
+            
+            <div class="control-group">
+                <label class="control-label" for="defenderB">Defender B</label>
+                <div class="controls">
+                    <input type="number" name="defenderB" id="defenderB" placeholder="Please type Defender B's ID">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="scoreA">Score A</label>
+                <div class="controls">
+                    <input type="number" name="scoreA" id="scoreA" placeholder="Ending score for team A">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="scoreB">Score B</label>
+                <div class="controls">
+                    <input type="number" name="scoreB" id="scoreB" placeholder="Ending score for team B">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="winner">Winning Team</label>
+                <div class="controls">
+                    <input type="text" name="winner" id="winner" placeholder="Choose winner">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="timestamp">Date and Time of Game</label>
+                <div class="controls">
+                    <input type="text" name="timestamp" id="timestamp" placeholder="Fix this to be a dropdown?">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+                <button type="reset" class="btn" value="Reset">Cancel</button>
+            </div>
+        </fieldset>
     </form>
 
 {{ end }}
