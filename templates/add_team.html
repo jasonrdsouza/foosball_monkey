@@ -13,27 +13,30 @@
     
     <h1>Add Team</h1>
 
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('#addteam-form').validate(
-        {
-            rules: {
-                Name: {
-                    minlength: 2,
-                    required: true
+    <!-- JQuery Form Validation Plugin -->
+    <script src="/js/jquery.validate.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#addteam-form').validate(
+            {
+                rules: {
+                    name: {
+                        minlength: 2,
+                        required: true
+                    }
                 },
-            },
-            highlight: function(label) {
-                $(label).closest('.control-group').addClass('error');
-            },
-            success: function(label) {
-                $(label)
-                .text('OK!').addClass('valid')
-                .closest('.control-group').addClass('success');
-            }
+                highlight: function(label) {
+                    $(label).closest('.control-group').addClass('error');
+                },
+                success: function(label) {
+                    $(label)
+                    .text('OK!').addClass('valid')
+                    .closest('.control-group').addClass('success');
+                }
+            });
         });
-    });
-</script>
+    </script>
 
     <form class="form-horizontal" id="addteam-form" action="/teams/addHandler" method="post">
         <fieldset>

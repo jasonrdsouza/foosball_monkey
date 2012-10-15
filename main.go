@@ -77,7 +77,7 @@ func addPlayerHandler(w http.ResponseWriter, req *http.Request) {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
     }
-    http.Redirect(w, req, "/players/add", http.StatusFound)
+    http.Redirect(w, req, "/players", http.StatusFound)
 }
 
 func addPlayer(w http.ResponseWriter, req *http.Request) {
@@ -153,7 +153,7 @@ func addGameHandler(w http.ResponseWriter, req *http.Request) {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
     }
-    http.Redirect(w, req, "/games/add", http.StatusFound)
+    http.Redirect(w, req, "/games", http.StatusFound)
 }
 
 func addGame(w http.ResponseWriter, req *http.Request) {
@@ -253,7 +253,7 @@ func addTeamHandler(w http.ResponseWriter, req *http.Request) {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
     }
-    http.Redirect(w, req, "/teams/add", http.StatusFound)
+    http.Redirect(w, req, "/teams", http.StatusFound)
 }
 
 func getTeamByIdJSON(w http.ResponseWriter, req *http.Request) {
