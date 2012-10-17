@@ -13,6 +13,51 @@
     
     <h1>Add Foosball Game</h1>
 
+    <!-- JQuery Form Validation Plugin -->
+    <script src="/js/jquery.validate.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#addgame-form').validate(
+            {
+                rules: {
+                    offenderA: {
+                        required: true
+                    },
+                    defenderA: {
+                        required: true
+                    },
+                    offenderB: {
+                        required: true
+                    },
+                    defenderB: {
+                        required: true
+                    }
+                    scoreA: {
+                        required: true
+                    },
+                    scoreB: {
+                        required: true
+                    },
+                    winner: {
+                        required: true
+                    },
+                    timestamp: {
+                        required: true
+                    }
+                },
+                highlight: function(label) {
+                    $(label).closest('.control-group').addClass('error');
+                },
+                success: function(label) {
+                    $(label)
+                    .text('OK!').addClass('valid')
+                    .closest('.control-group').addClass('success');
+                }
+            });
+        });
+    </script>
+
     <form class="form-horizontal" id="addgame-form" action="/games/addHandler" method="post">
         <fieldset>
             <legend>Add Foosball Game</legend>
@@ -20,49 +65,68 @@
             <div class="control-group">
                 <label class="control-label" for="offenderA">Offender A</label>
                 <div class="controls">
-                    <input type="number" name="offenderA" id="offenderA" placeholder="Please type Offender A's ID">
+                    <select name="offenderA" id="offenderA">
+                    {{range .}}
+                        <option value="{{.Id}}">{{.Name}}</option>
+                    {{ end }}
+                    </select>
                 </div>
             </div>
             
             <div class="control-group">
                 <label class="control-label" for="defenderA">Defender A</label>
                 <div class="controls">
-                    <input type="number" name="defenderA" id="defenderA" placeholder="Please type Defender A's ID">
+                    <select name="defenderA" id="defenderA">
+                    {{range .}}
+                        <option value="{{.Id}}">{{.Name}}</option>
+                    {{ end }}
+                    </select>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="offenderB">Offender B</label>
                 <div class="controls">
-                    <input type="number" name="offenderB" id="offenderB" placeholder="Please type Offender B's ID">
+                    <select name="offenderB" id="offenderB">
+                    {{range .}}
+                        <option value="{{.Id}}">{{.Name}}</option>
+                    {{ end }}
+                    </select>
                 </div>
             </div>
             
             <div class="control-group">
                 <label class="control-label" for="defenderB">Defender B</label>
                 <div class="controls">
-                    <input type="number" name="defenderB" id="defenderB" placeholder="Please type Defender B's ID">
+                    <select name="defenderB" id="defenderB">
+                    {{range .}}
+                        <option value="{{.Id}}">{{.Name}}</option>
+                    {{ end }}
+                    </select>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="scoreA">Score A</label>
                 <div class="controls">
-                    <input type="number" name="scoreA" id="scoreA" placeholder="Ending score for team A">
+                    <input type="number" min="0" name="scoreA" id="scoreA" placeholder="Ending score for team A">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="scoreB">Score B</label>
                 <div class="controls">
-                    <input type="number" name="scoreB" id="scoreB" placeholder="Ending score for team B">
+                    <input type="number" min="0" name="scoreB" id="scoreB" placeholder="Ending score for team B">
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label" for="winner">Winning Team</label>
                 <div class="controls">
-                    <input type="text" name="winner" id="winner" placeholder="Choose winner">
+                    <select name="winner" id="winner">
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                    </select>
                 </div>
             </div>
 

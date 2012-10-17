@@ -35,6 +35,18 @@ type Game struct {
     Timestamp time.Time
 }
 
+type GameDisplay struct {
+    Id int
+    OffenderA string
+    DefenderA string
+    OffenderB string
+    DefenderB string
+    ScoreA int
+    ScoreB int
+    Winner string
+    Timestamp time.Time
+}
+
 type Team struct {
     Id int
     Name string
@@ -214,6 +226,35 @@ func GetAllGames(db_name string) ([]Game, error) {
     }
 
     return games, nil
+}
+
+func GetAllGames_display(db_name string) ([]GameDisplay, error) {
+    games, err := GetAllGames(db_name)
+    if err != nil {
+        return nil, err
+    }
+    games_display := make([]GameDisplay, len(games))
+    for _, game := range games {
+        offA, err := GetPlayerByID(db_name, game.OffenderA)
+        if err != nil {
+            return nil, err
+        }
+        defA, err := GetPlayerByID(db_name, game.DefenderA)
+        if err != nil {
+            return nil, err
+        }
+        offB, err := GetPlayerByID(db_name, game.OffenderB)
+        if err != nil {
+            return nil, err
+        }
+        defB, err := GetPlayerByID(db_name, game.DefenderB)
+        if err != nil {
+            return nil, err
+        }
+        gd := GameDisplay{game.Id, offA.Name, defA.Name, offB.Name, defB.Name, game.ScoreA, game.ScoreB, game.Winner, game.Timestamp}
+        games_display = append(games_display, gd)
+    }
+    return games_display, nil
 }
 
 func GetGameByID(db_name string, id int) (Game, error) {

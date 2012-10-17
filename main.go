@@ -165,15 +165,22 @@ func addGameHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func addGame(w http.ResponseWriter, req *http.Request) {
-    if err := addgame_html.Execute(w, nil); err != nil {
+    //get players for dropdown
+    players, err := datastore.GetAllPlayers(database)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if err := addgame_html.Execute(w, players); err != nil {
       http.Error(w, err.Error(), http.StatusInternalServerError)
       return
     }
 }
 
 func getAllGames(w http.ResponseWriter, req *http.Request) {
-    var games []datastore.Game
-    games, err := datastore.GetAllGames(database)
+    var games []datastore.GameDisplay
+    games, err := datastore.GetAllGames_display(database)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
