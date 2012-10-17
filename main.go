@@ -81,7 +81,15 @@ func addPlayerHandler(w http.ResponseWriter, req *http.Request) {
 }
 
 func addPlayer(w http.ResponseWriter, req *http.Request) {
-    if err := addplayer_html.Execute(w, nil); err != nil {
+    //get teams to populate the form
+    var teams []datastore.Team
+    teams, err := datastore.GetAllTeams(database)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if err := addplayer_html.Execute(w, teams); err != nil {
       http.Error(w, err.Error(), http.StatusInternalServerError)
       return
     }

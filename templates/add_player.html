@@ -13,6 +13,37 @@
     
     <h1>Add Foosball Player</h1>
 
+    <!-- JQuery Form Validation Plugin -->
+    <script src="/js/jquery.validate.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#addplayer-form').validate(
+            {
+                rules: {
+                    name: {
+                        minlength: 1,
+                        required: true
+                    },
+                    email: {
+                        required: true
+                    },
+                    tagline: {
+                        required: true
+                    }
+                },
+                highlight: function(label) {
+                    $(label).closest('.control-group').addClass('error');
+                },
+                success: function(label) {
+                    $(label)
+                    .text('OK!').addClass('valid')
+                    .closest('.control-group').addClass('success');
+                }
+            });
+        });
+    </script>
+
     <form class="form-horizontal" id="addplayer-form" action="/players/addHandler" method="post">
         <fieldset>
             <legend>Add Foosball Player</legend>
@@ -27,7 +58,7 @@
             <div class="control-group">
                 <label class="control-label" for="email">Player email</label>
                 <div class="controls">
-                    <input type="text" name="email" id="email" placeholder="Used for gravatar support">
+                    <input type="email" name="email" id="email" placeholder="Used for gravatar support">
                 </div>
             </div>
 
@@ -41,7 +72,11 @@
             <div class="control-group">
                 <label class="control-label" for="team">Team</label>
                 <div class="controls">
-                    <input type="number" name="team" id="team" placeholder="Your team's ID">
+                    <select name="team" id="team">
+                        {{range .}}
+                        <option value="{{.Id}}">{{.Name}}</option>
+                        {{ end }}
+                    </select>
                 </div>
             </div>
 
