@@ -233,7 +233,7 @@ func GetAllGames_display(db_name string) ([]GameDisplay, error) {
     if err != nil {
         return nil, err
     }
-    games_display := make([]GameDisplay, len(games))
+    games_display := make([]GameDisplay, 0)
     for _, game := range games {
         offA, err := GetPlayerByID(db_name, game.OffenderA)
         if err != nil {
@@ -301,6 +301,7 @@ func GetAllTeams(db_name string) ([]Team, error) {
     for rows.Next() {
         team := Team{}
         rows.Scan(&(team.Id), &(team.Name))
+        team.Members, _ = GetTeamMembers(db_name, team)
         teams = append(teams, team)
     }
 
@@ -328,7 +329,43 @@ func GetTeamByID(db_name string, id int) (Team, error) {
         return Team{}, err 
     }
 
+    players, err := GetTeamMembers(db_name, team)
+    if err != nil {
+        return team, err 
+    }
+
+    team.Members = players
+
     return team, nil
+}
+
+func GetTeamMembers(db_name string, team Team) ([]Player, error) {
+    db_name = "./" + db_name
+    db, err := sql.Open("sqlite3", db_name)
+    if err != nil {
+        return nil, err
+    }
+    defer db.Close()
+
+    stmt, err := db.Prepare("select id, name, email, email_md5, tagline, team from players where team = ?")
+    if err != nil {
+        return nil, err
+    }
+    defer stmt.Close()
+
+    players := make([]Player, 0)
+    rows, err := stmt.Query(team.Id)
+    if err != nil {
+        return nil, err
+    }
+
+    for rows.Next() {
+        player := Player{}
+        rows.Scan(&(player.Id), &(player.Name), &(player.Email), &(player.Email_md5), &(player.Tagline), &(player.Team))
+        players = append(players, player)
+    }
+
+    return players, nil
 }
 
 func AddTeam(db_name string, team_name string) (error) {

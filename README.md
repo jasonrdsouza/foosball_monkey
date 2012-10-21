@@ -5,10 +5,6 @@ Webapp to track foosball things.
 
 Todo (for v1.0)
 ---------------
-- Add validations
-    - Games
-        - date/ time should be validated somehow
-            - sync this with the go representation of date/time somehow
 - backup db functionality
     - copy file somewhere else (dropbox?)
 - Change the redirect after adding a player/game/team
@@ -19,8 +15,6 @@ Todo (for v1.0)
 - GetGameById html style
 - GetTeamById html style
 - Get site search to work
-- Team members functionality
-    - populate the teams table with the right members in the members column
 - Implement delete functionality
     - for players
     - for games
@@ -31,6 +25,8 @@ Todo (for v1.0)
 - Change the index page to reflect proper functionality
 - Fix stupid header formatting thing
     - that causes the bar at the top to overlap with the header of a page
+- Better date validation
+- Fix players view to show team name with link instead of team id.
 
 
 Future Functionality

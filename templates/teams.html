@@ -32,7 +32,13 @@
             <tr>
                 <td><a href="/teams/{{.Id}}">{{.Id}}</a></td>
                 <td>{{.Name}}</td>
-                <td>String of members here!</td>
+                <td>
+                    {{range .Members}}
+                    <ul>
+                        <li><a href="/players/{{.Id}}">{{.Name}}</a></li>
+                    </ul>
+                    {{end}}
+                </td>
             </tr>
             {{end}}
         </tbody>

@@ -310,6 +310,19 @@ func getRankingsJSON(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, "Implement this JSON ranking functionality")
 }
 
+func getSearchResultsJSON(w http.ResponseWriter, req *http.Request) {
+    vars := mux.Vars(req)
+    query, _ := vars["query"]
+    // do some database stuff here
+    
+    temp_output := fmt.Sprintf("You searched for: %s", query)
+    temp_output_json, err := json.Marshal(temp_output)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+    fmt.Fprintln(w, string(temp_output_json))
+}
 
 
 func main() {
@@ -337,6 +350,7 @@ func main() {
     r.HandleFunc("/queue.json", getQueueJSON)
     r.HandleFunc("/rankings", getRankings)
     r.HandleFunc("/rankings.json", getRankingsJSON)
+    r.HandleFunc("/search/{query:[a-z0-9]+}.json", getSearchResultsJSON)
 
     http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
     http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))

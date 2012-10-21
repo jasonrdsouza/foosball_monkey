@@ -16,6 +16,32 @@
     <!-- JQuery Form Validation Plugin -->
     <script src="/js/jquery.validate.min.js"></script>
 
+    <!--
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+    <script>
+    $(function() {
+        $( "#datepicker" ).datepicker();
+    });
+    </script>
+    -->
+
+    <script>
+    function calculate_date() {
+        currentTime = new Date();
+        day         = currentTime.getDate();
+        year        = currentTime.getFullYear();
+        month       = currentTime.getMonth() + 1;
+        calcdate    = year + "-" + month + "-" + day;
+        return calcdate;
+    }
+
+    function prepopulate_date() {
+        document.getElementById("datepicker").setAttribute('value', calculate_date());
+    }
+
+    window.onload = prepopulate_date;
+    </script>
+
     <script type="text/javascript">
         $(document).ready(function(){
             $('#addgame-form').validate(
@@ -32,7 +58,7 @@
                     },
                     defenderB: {
                         required: true
-                    }
+                    },
                     scoreA: {
                         required: true
                     },
@@ -43,6 +69,7 @@
                         required: true
                     },
                     timestamp: {
+                        date: true,
                         required: true
                     }
                 },
@@ -62,6 +89,13 @@
         <fieldset>
             <legend>Add Foosball Game</legend>
             
+            <div class="control-group">
+                <label class="control-label" for="timestamp">Date of Game</label>
+                <div class="controls">
+                    <input type="datetime" name="timestamp" id="datepicker" placeholder="YYYY-MM-DD">
+                </div>
+            </div>
+
             <div class="control-group">
                 <label class="control-label" for="offenderA">Offender A</label>
                 <div class="controls">
@@ -127,13 +161,6 @@
                         <option value="A">A</option>
                         <option value="B">B</option>
                     </select>
-                </div>
-            </div>
-
-            <div class="control-group">
-                <label class="control-label" for="timestamp">Date and Time of Game</label>
-                <div class="controls">
-                    <input type="datetime" name="timestamp" id="timestamp" placeholder="Fix this to be a dropdown?">
                 </div>
             </div>
 

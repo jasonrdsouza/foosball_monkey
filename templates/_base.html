@@ -22,8 +22,8 @@
                         <ul class="nav">
                             {{ template "menu" . }}
                         </ul>
-                        <form class="navbar-form pull-right form-search">
-                            <input type="text" class="input-medium search-query" placeholder="Search site...">
+                        <form class="navbar-form pull-right form-search" id="search-form" action="/search">
+                            <input type="text" name="query" id="query" class="input-medium search-query" placeholder="Search site...">
                             <button type="submit" class="btn">Search</button>
                         </form>
                     </div><!--/.nav-collapse -->
