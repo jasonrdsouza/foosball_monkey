@@ -10,11 +10,6 @@ Todo (for v1.0)
 - GetPlayerById html style
 - GetGameById html style
 - GetTeamById html style
-- Implement delete functionality
-    - for players
-    - for games
-    - for teams
-    - for queue
 - Implement basic rankings
 - Fix players view to show team name with link instead of team id.
 
@@ -40,6 +35,8 @@ Future Functionality
     - email errors/ logs to me
     - email feedback from the users to me
 - Spruce up index page
+- Don't allow deletion of teams/ players if there are references to them elsewhere?
+
 
 Ranking
 -------

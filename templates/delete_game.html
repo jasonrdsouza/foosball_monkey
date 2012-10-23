@@ -1,0 +1,38 @@
+{{ define "title" }}Foosball Monkey - Delete Game{{ end }}
+
+{{ define "menu" }}
+    <li><a href="/">Home</a></li>
+    <li><a href="/players">Players</a></li>
+    <li class="active"><a href="/games">Games</a></li>
+    <li><a href="/teams">Teams</a></li>
+    <li><a href="/rankings">Rankings</a></li>
+    <li><a href="/queue">Queue</a></li>
+{{ end }}
+
+{{ define "content" }}
+    
+    <h1>Delete Game</h1>
+
+    <form class="form-horizontal" id="deletegame-form" action="/games/deleteHandler" method="post">
+        <fieldset>
+            <legend>Delete Game</legend>
+            
+            <div class="control-group">
+                <label class="control-label" for="name">Game to Delete</label>
+                <div class="controls">
+                    <select name="name" id="name">
+                    {{range .}}
+                        <option value="{{.Id}}">ID: {{.Id}} | Team A: {{.OffenderA}}, {{.DefenderA}} | Team B: {{.OffenderB}}, {{.DefenderB}} | Winner: {{.Winner}} | Date: {{.Timestamp}}</option>
+                    {{ end }}
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" value="Submit">Submit</button>
+                <button type="reset" class="btn" value="Reset">Cancel</button>
+            </div>
+        </fieldset>
+    </form>
+
+{{ end }}

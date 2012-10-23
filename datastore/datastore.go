@@ -175,6 +175,33 @@ func GetPlayerByID(db_name string, id int) (Player, error) {
     return fetched_player, nil
 }
 
+func DeletePlayer(db_name string, player_id int) (error) {
+    db_name = "./" + db_name
+    db, err := sql.Open("sqlite3", db_name)
+    if err != nil {
+        return err
+    }
+    defer db.Close()
+
+    //start a transaction (tx)
+    tx, err := db.Begin()
+    if err != nil {
+        return err
+    }
+    stmt, err := tx.Prepare("delete from players where id = (?)")
+    if err != nil {
+        return err
+    }
+    defer stmt.Close()
+    _, err = stmt.Exec(player_id)
+    if err != nil {
+        return err 
+    }
+    tx.Commit()
+
+    return nil
+}
+
 func AddGame(db_name string, offenderA int, defenderA int, offenderB int, defenderB int, scoreA int, scoreB int, winner string, dt string) (error) {
     db_name = "./" + db_name
     db, err := sql.Open("sqlite3", db_name)
@@ -281,6 +308,33 @@ func GetGameByID(db_name string, id int) (Game, error) {
     game.Timestamp, _ = convertDateStrToTime(date_string)
 
     return game, nil
+}
+
+func DeleteGame(db_name string, game_id int) (error) {
+    db_name = "./" + db_name
+    db, err := sql.Open("sqlite3", db_name)
+    if err != nil {
+        return err
+    }
+    defer db.Close()
+
+    //start a transaction (tx)
+    tx, err := db.Begin()
+    if err != nil {
+        return err
+    }
+    stmt, err := tx.Prepare("delete from games where id = (?)")
+    if err != nil {
+        return err
+    }
+    defer stmt.Close()
+    _, err = stmt.Exec(game_id)
+    if err != nil {
+        return err 
+    }
+    tx.Commit()
+
+    return nil
 }
 
 func GetAllTeams(db_name string) ([]Team, error) {
@@ -394,7 +448,34 @@ func AddTeam(db_name string, team_name string) (error) {
 
     return nil
 }
-    
+
+func DeleteTeam(db_name string, team_id int) (error) {
+    db_name = "./" + db_name
+    db, err := sql.Open("sqlite3", db_name)
+    if err != nil {
+        return err
+    }
+    defer db.Close()
+
+    //start a transaction (tx)
+    tx, err := db.Begin()
+    if err != nil {
+        return err
+    }
+    stmt, err := tx.Prepare("delete from teams where id = (?)")
+    if err != nil {
+        return err
+    }
+    defer stmt.Close()
+    _, err = stmt.Exec(team_id)
+    if err != nil {
+        return err 
+    }
+    tx.Commit()
+
+    return nil
+}
+  
 /*    
 
     rows, err := db.Query("select id, name from foo")

@@ -29,6 +29,10 @@ var addplayer_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/add_player.html",
 ))
+var deleteplayer_html = template.Must(template.ParseFiles(
+  "templates/_base.html",
+  "templates/delete_player.html",
+))
 var games_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/games.html",
@@ -37,6 +41,10 @@ var addgame_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/add_game.html",
 ))
+var deletegame_html = template.Must(template.ParseFiles(
+  "templates/_base.html",
+  "templates/delete_game.html",
+))
 var teams_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/teams.html",
@@ -44,6 +52,10 @@ var teams_html = template.Must(template.ParseFiles(
 var addteam_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/add_team.html",
+))
+var deleteteam_html = template.Must(template.ParseFiles(
+  "templates/_base.html",
+  "templates/delete_team.html",
 ))
 var queue_html = template.Must(template.ParseFiles(
   "templates/_base.html",
@@ -139,6 +151,31 @@ func getPlayerByIdJSON(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, string(player_json))
 }
 
+func deletePlayer(w http.ResponseWriter, req *http.Request) {
+    var players []datastore.Player
+    players, err := datastore.GetAllPlayers(database)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if err := deleteplayer_html.Execute(w, players); err != nil {
+      http.Error(w, err.Error(), http.StatusInternalServerError)
+      return
+    }
+}
+
+func deletePlayerHandler(w http.ResponseWriter, req *http.Request) {
+    player_id, _ := strconv.Atoi(req.FormValue("name"))
+
+    err := datastore.DeletePlayer(database, player_id)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+    http.Redirect(w, req, "/players", http.StatusFound)
+}
+
 func addGameHandler(w http.ResponseWriter, req *http.Request) {
     offenderA, _ := strconv.Atoi(req.FormValue("offenderA"))
     defenderA, _ := strconv.Atoi(req.FormValue("defenderA"))
@@ -224,6 +261,31 @@ func getGameByIdJSON(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, string(game_json))
 }
 
+func deleteGame(w http.ResponseWriter, req *http.Request) {
+    var games []datastore.GameDisplay
+    games, err := datastore.GetAllGames_display(database)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if err := deletegame_html.Execute(w, games); err != nil {
+      http.Error(w, err.Error(), http.StatusInternalServerError)
+      return
+    }
+}
+
+func deleteGameHandler(w http.ResponseWriter, req *http.Request) {
+    game_id, _ := strconv.Atoi(req.FormValue("name"))
+
+    err := datastore.DeleteGame(database, game_id)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+    http.Redirect(w, req, "/games", http.StatusFound)
+}
+
 func getAllTeams(w http.ResponseWriter, req *http.Request) {
     var teams []datastore.Team
     teams, err := datastore.GetAllTeams(database)
@@ -288,6 +350,31 @@ func getTeamByIdJSON(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, string(team_json))
 }
 
+func deleteTeam(w http.ResponseWriter, req *http.Request) {
+    var teams []datastore.Team
+    teams, err := datastore.GetAllTeams(database)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if err := deleteteam_html.Execute(w, teams); err != nil {
+      http.Error(w, err.Error(), http.StatusInternalServerError)
+      return
+    }
+}
+
+func deleteTeamHandler(w http.ResponseWriter, req *http.Request) {
+    team_id, _ := strconv.Atoi(req.FormValue("name"))
+
+    err := datastore.DeleteTeam(database, team_id)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+    http.Redirect(w, req, "/teams", http.StatusFound)
+}
+
 func getQueue(w http.ResponseWriter, req *http.Request) {
     if err := queue_html.Execute(w, nil); err != nil {
       http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -336,16 +423,22 @@ func main() {
     r.HandleFunc("/players/{id:[0-9]+}.json", getPlayerByIdJSON)
     r.HandleFunc("/players/add", addPlayer)
     r.HandleFunc("/players/addHandler", addPlayerHandler)
+    r.HandleFunc("/players/delete", deletePlayer)
+    r.HandleFunc("/players/deleteHandler", deletePlayerHandler)
     r.HandleFunc("/games", getAllGames)
     r.HandleFunc("/games.json", getAllGamesJSON)
     r.HandleFunc("/games/{id:[0-9]+}.json", getGameByIdJSON)
     r.HandleFunc("/games/add", addGame)
     r.HandleFunc("/games/addHandler", addGameHandler)
+    r.HandleFunc("/games/delete", deleteGame)
+    r.HandleFunc("/games/deleteHandler", deleteGameHandler)
     r.HandleFunc("/teams", getAllTeams)
     r.HandleFunc("/teams.json", getAllTeamsJSON)
     r.HandleFunc("/teams/{id:[0-9]+}.json", getTeamByIdJSON)
     r.HandleFunc("/teams/add", addTeam)
     r.HandleFunc("/teams/addHandler", addTeamHandler)
+    r.HandleFunc("/teams/delete", deleteTeam)
+    r.HandleFunc("/teams/deleteHandler", deleteTeamHandler)
     r.HandleFunc("/queue", getQueue)
     r.HandleFunc("/queue.json", getQueueJSON)
     r.HandleFunc("/rankings", getRankings)
