@@ -33,6 +33,10 @@ var deleteplayer_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/delete_player.html",
 ))
+var player_html = template.Must(template.ParseFiles(
+  "templates/_base.html",
+  "templates/player.html",
+))
 var games_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/games.html",
@@ -45,6 +49,10 @@ var deletegame_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/delete_game.html",
 ))
+var game_html = template.Must(template.ParseFiles(
+  "templates/_base.html",
+  "templates/game.html",
+))
 var teams_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/teams.html",
@@ -56,6 +64,10 @@ var addteam_html = template.Must(template.ParseFiles(
 var deleteteam_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/delete_team.html",
+))
+var team_html = template.Must(template.ParseFiles(
+  "templates/_base.html",
+  "templates/team.html",
 ))
 var queue_html = template.Must(template.ParseFiles(
   "templates/_base.html",
@@ -123,7 +135,7 @@ func getAllPlayersJSON(w http.ResponseWriter, req *http.Request) {
 }
 
 func getAllPlayers(w http.ResponseWriter, req *http.Request) {
-    players, err := datastore.GetAllPlayers(database)
+    players, err := datastore.GetAllPlayers_display(database)
     if err != nil {
         http.Error(w, err.Error(), http.StatusInternalServerError)
         return
@@ -149,6 +161,21 @@ func getPlayerByIdJSON(w http.ResponseWriter, req *http.Request) {
         return
     }
     fmt.Fprintln(w, string(player_json))
+}
+
+func getPlayerById(w http.ResponseWriter, req *http.Request) {
+    vars := mux.Vars(req)
+    id, _ := strconv.Atoi(vars["id"])
+    p, err := datastore.GetPlayerByID(database, id)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if err := player_html.Execute(w, p); err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
 }
 
 func deletePlayer(w http.ResponseWriter, req *http.Request) {
@@ -261,6 +288,21 @@ func getGameByIdJSON(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, string(game_json))
 }
 
+func getGameById(w http.ResponseWriter, req *http.Request) {
+    vars := mux.Vars(req)
+    id, _ := strconv.Atoi(vars["id"])
+    g, err := datastore.GetGameByID(database, id)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if err := game_html.Execute(w, g); err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+}
+
 func deleteGame(w http.ResponseWriter, req *http.Request) {
     var games []datastore.GameDisplay
     games, err := datastore.GetAllGames_display(database)
@@ -350,6 +392,21 @@ func getTeamByIdJSON(w http.ResponseWriter, req *http.Request) {
     fmt.Fprintln(w, string(team_json))
 }
 
+func getTeamById(w http.ResponseWriter, req *http.Request) {
+    vars := mux.Vars(req)
+    id, _ := strconv.Atoi(vars["id"])
+    t, err := datastore.GetTeamByID(database, id)
+    if err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+
+    if err := team_html.Execute(w, t); err != nil {
+        http.Error(w, err.Error(), http.StatusInternalServerError)
+        return
+    }
+}
+
 func deleteTeam(w http.ResponseWriter, req *http.Request) {
     var teams []datastore.Team
     teams, err := datastore.GetAllTeams(database)
@@ -421,6 +478,7 @@ func main() {
     r.HandleFunc("/players", getAllPlayers)
     r.HandleFunc("/players.json", getAllPlayersJSON)
     r.HandleFunc("/players/{id:[0-9]+}.json", getPlayerByIdJSON)
+    r.HandleFunc("/players/{id:[0-9]+}", getPlayerById)
     r.HandleFunc("/players/add", addPlayer)
     r.HandleFunc("/players/addHandler", addPlayerHandler)
     r.HandleFunc("/players/delete", deletePlayer)
@@ -428,6 +486,7 @@ func main() {
     r.HandleFunc("/games", getAllGames)
     r.HandleFunc("/games.json", getAllGamesJSON)
     r.HandleFunc("/games/{id:[0-9]+}.json", getGameByIdJSON)
+    r.HandleFunc("/games/{id:[0-9]+}", getGameById)
     r.HandleFunc("/games/add", addGame)
     r.HandleFunc("/games/addHandler", addGameHandler)
     r.HandleFunc("/games/delete", deleteGame)
@@ -435,6 +494,7 @@ func main() {
     r.HandleFunc("/teams", getAllTeams)
     r.HandleFunc("/teams.json", getAllTeamsJSON)
     r.HandleFunc("/teams/{id:[0-9]+}.json", getTeamByIdJSON)
+    r.HandleFunc("/teams/{id:[0-9]+}", getTeamById)
     r.HandleFunc("/teams/add", addTeam)
     r.HandleFunc("/teams/addHandler", addTeamHandler)
     r.HandleFunc("/teams/delete", deleteTeam)

@@ -11,7 +11,6 @@ Todo (for v1.0)
 - GetGameById html style
 - GetTeamById html style
 - Implement basic rankings
-- Fix players view to show team name with link instead of team id.
 
 
 Future Functionality

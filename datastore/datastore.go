@@ -23,6 +23,15 @@ type Player struct {
     Team int
 }
 
+type PlayerDisplay struct {
+    Id int
+    Name string
+    Email string
+    Email_md5 string
+    Tagline string
+    Team string
+}
+
 type Game struct {
     Id int
     OffenderA int
@@ -148,6 +157,23 @@ func GetAllPlayers(db_name string) ([]Player, error) {
         players = append(players, player)
     }
     return players, nil
+}
+
+func GetAllPlayers_display(db_name string) ([]PlayerDisplay, error) {
+    players, err := GetAllPlayers(db_name)
+    if err != nil {
+        return nil, err
+    }
+    players_display := make([]PlayerDisplay, 0)
+    for _, player := range players {
+        team, err := GetTeamByID(db_name, player.Team)
+        if err != nil {
+            return nil, err
+        }
+        pd := PlayerDisplay{player.Id, player.Name, player.Email, player.Email_md5, player.Tagline, team.Name}
+        players_display = append(players_display, pd)
+    }
+    return players_display, nil
 }
 
 func GetPlayerByID(db_name string, id int) (Player, error) {
