@@ -10,5 +10,34 @@
 {{ end }}
 
 {{ define "content" }}
-Team content here
+
+<h1>Team Profile: {{.Name}}</h1>
+
+<div class="row-fluid">
+  
+    <div class="span2">
+        <h2>{{.Name}}</h2>
+    </div>
+
+    <div class="span8">
+        <ul>
+        {{range $index, $element := .Members}}
+            {{if mod0 $index 4 }}
+                <p>Top works!</p>
+            {{end}}
+            <div class="row">
+                <div class="span8">
+                    {{$element.Name}}
+                    <img src="http://www.gravatar.com/avatar/{{$element.Email_md5}}" class="img-rounded">
+                </div>
+            </div>
+            {{if mod0 $index 3 }}
+                <p>Bottom works</p>
+            {{end}}
+        {{end}}
+        </ul>
+    </div>
+
+</div>
+
 {{ end }}

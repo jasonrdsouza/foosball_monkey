@@ -65,10 +65,22 @@ var deleteteam_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/delete_team.html",
 ))
-var team_html = template.Must(template.ParseFiles(
-  "templates/_base.html",
-  "templates/team.html",
+
+var temp_temp, err = template.ParseFiles(
+    "templates/_base.html",
+    "templates/team.html",
+)
+
+var team_html = template.Must(template.New("team_template").Funcs(
+        template.FuncMap{
+            "mod0": func(a, b int) bool {
+                return a % b == 0
+            },
+        }).ParseFiles(
+    "templates/_base.html",
+    "templates/team.html",
 ))
+
 var queue_html = template.Must(template.ParseFiles(
   "templates/_base.html",
   "templates/queue.html",

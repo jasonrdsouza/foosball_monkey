@@ -10,5 +10,44 @@
 {{ end }}
 
 {{ define "content" }}
-Player content here
+
+<h1>Player Profile: {{.Name}}</h1>
+
+<div class="row-fluid">
+    <div class="span4">
+
+        <img src="http://www.gravatar.com/avatar/{{.Email_md5}}?s=220" class="img-polaroid">
+    
+    </div>
+    <div class="span8">
+
+        <table class="table table-striped table-bordered table-hover">
+            <caption><strong>Player Info</strong></caption>
+            <tbody data-provides="rowlink">
+                <tr>
+                    <td>Player ID</td>
+                    <td>{{.Id}}</td>
+                </tr>
+                <tr>
+                    <td>Player Name</td>
+                    <td>{{.Name}}</td>
+                </tr>
+                <tr>
+                    <td>Player Email</td>
+                    <td>{{.Email}}</td>
+                </tr>
+                <tr>
+                    <td>Player Tagline</td>
+                    <td>{{.Tagline}}</td>
+                </tr>
+                <tr>
+                    <td>Player Team</td>
+                    <td>{{.Team}}</td>
+                </tr>
+            </tbody>
+        </table>
+    
+    </div>
+</div>
+
 {{ end }}

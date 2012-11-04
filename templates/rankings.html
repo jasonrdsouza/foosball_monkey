@@ -11,6 +11,9 @@
 
 {{ define "content" }}
     
+    <!--Load the AJAX API-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
     <h1>Foosball Rankings</h1>
 
     <p>Give an explanation of the rankings here.</p>
@@ -25,9 +28,67 @@
                 <p>Put all rankings associated with a specific player here...</p>
             </div>
             <div class="tab-pane" id="team-rankings">
-                <p>Put all rankings associated with a specific team here...</p>
+                <div id="members_breakdown"></div>
+                <div id="team_wins"></div>
             </div>
         </div>
     </div>
+
+
+<script type="text/javascript">
+
+    // Load the Visualization API and the piechart package.
+    google.load('visualization', '1.0', {'packages':['corechart']});
+
+    // Set callbacks to run when the Google Visualization API is loaded.
+    google.setOnLoadCallback(drawMemberBreakdownChart);
+    google.setOnLoadCallback(drawTeamWinsChart);
+
+    function drawMemberBreakdownChart() {
+        // Create the data table.
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Team');
+        data.addColumn('number', 'Players');
+        data.addRows([
+          ['Mushrooms', 3],
+          ['Onions', 1],
+          ['Olives', 1],
+          ['Zucchini', 1],
+          ['Pepperoni', 2]
+        ]);
+
+        // Set chart options
+        var options = {
+            'title': 'Team Members Breakdown',
+            'width': 800,
+            'height': 500
+        }
+
+        // Instantiate and draw our chart, passing in some options.
+        var chart = new google.visualization.PieChart(document.getElementById('members_breakdown'));
+        chart.draw(data, options);
+    }
+
+    function drawTeamWinsChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'Team1', 'Team2', 'Team3'],
+          ['2004',  1000, 1200, 700],
+          ['2005',  1170, 400, 800],
+          ['2006',  660, 1100, 1000],
+          ['2007',  1030, 1400, 700]
+        ]);
+
+        var options = {
+          'title': 'Team Wins Breakdown',
+          'hAxis': {title: 'Wins',  titleTextStyle: {color: 'red'}},
+          'width': 800,
+          'height': 500
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('team_wins'));
+        chart.draw(data, options);
+    }
+
+</script>
 
 {{ end }}
