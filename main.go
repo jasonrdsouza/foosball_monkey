@@ -7,8 +7,8 @@ import (
     "html/template"
     "encoding/json"
     "github.com/jasonrdsouza/foosball_monkey/datastore"
-    "code.google.com/p/gorilla/mux"
-    "code.google.com/p/gorilla/schema"
+    "github.com/gorilla/mux"
+    "github.com/gorilla/schema"
     //"time"
 )
 
