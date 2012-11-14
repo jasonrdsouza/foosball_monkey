@@ -4,6 +4,27 @@ import (
     "time"
 )
 
+
+type FoosballMonkeyDataHandler interface {
+    CreateNewDB(db_name string) error
+    ConnectToDB(db_name string) error
+    BackupDB() error
+    CloseDB() error
+    AddPlayer(player_name, email, tagline string, team int) error
+    DeletePlayer(player_id int) error
+    GetAllPlayers() ([]Player, error)
+    GetPlayerByID(id int) (Player, error)
+    AddGame(offenderA, defenderA, offenderB, defenderB, scoreA, scoreB int, winner, dt string) error
+    DeleteGame(game_id int) error
+    GetAllGames() ([]Game, error)
+    GetGameByID(id int) (Game, error)
+    AddTeam(team_name string) error
+    DeleteTeam(team_id int) error
+    GetAllTeams() ([]Team, error)
+    GetTeamByID(id int) (Team, error)
+    GetTeamMembers(team Team) ([]Player, error)
+}
+
 type Player struct {
     Id int
     Name string

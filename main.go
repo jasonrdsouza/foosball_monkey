@@ -12,7 +12,9 @@ import (
     //"time"
 )
 
-const database = "foosball_monkey_datastore.db"
+// Change this to use different underlying datastore
+var database = datastore.Sqlite3DataHandler{}
+var db = datastore.FoosballMonkeyDataHandler(database)
 
 // html form decoder
 var decoder = schema.NewDecoder()
@@ -98,12 +100,8 @@ func home(w http.ResponseWriter, req *http.Request) {
     }
 }
 
-func initializeDB() {
-    err := datastore.CreateNewDB(database)
-    if err != nil {
-        fmt.Println(err)
-        return
-    }
+func connectToDB() {
+    err := db.ConnectToDB("foosball_monkey_datastore.db")
 }
 
 func addPlayerHandler(w http.ResponseWriter, req *http.Request) {
@@ -483,6 +481,7 @@ func getSearchResultsJSON(w http.ResponseWriter, req *http.Request) {
 
 func main() {
     //initializeDB()  //uncomment this to remake the database
+    connectToDB()
 
     r := mux.NewRouter()
 
