@@ -3,19 +3,13 @@ foosball_monkey
 
 Webapp to track foosball things.
 
+
+
 Todo (for v1.0)
 ---------------
 - backup db functionality
     - copy file somewhere else (dropbox?)
-- GetGameById html style
-    - pictures of the players
-    - seperated by team
-    - schematic of the foosball table?
 - Implement basic rankings
-- Remove the delete player and delete team functionality
-- consolidate player and player_display struct into 1 that has all the info
-    - same for others
-    - need foreign keys as well as the values for links
 
 
 Future Functionality
@@ -30,7 +24,7 @@ Future Functionality
 - Fix stupid header formatting thing
     - that causes the bar at the top to overlap with the header of a page
 - Better date validation
-- Implement the queue
+- Implement the queue/ change it into a way to find someone who wants to play
 - Ability to email things
     - weekly report?
         - how many games you have played
@@ -39,9 +33,15 @@ Future Functionality
     - email errors/ logs to me
     - email feedback from the users to me
 - Spruce up index page
-- Don't allow deletion of teams/ players if there are references to them elsewhere?
+- Enable deletion in a limited fashion
+    - If no references to the db object?
 - GetTeamById html style
     - gravatars of all the players
+- GetGameById html style
+    - pictures of the players
+    - seperated by team
+    - schematic of the foosball table?
+- Log stuff with logger package
 
 
 Ranking

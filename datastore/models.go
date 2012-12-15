@@ -8,7 +8,7 @@ import (
 type FoosballMonkeyDataHandler interface {
     CreateNewDB(db_name string) error
     ConnectToDB(db_name string) error
-    BackupDB() error
+    BackupDB(backup_dir string) error
     CloseDB() error
     AddPlayer(player_name, email, tagline string, team int) error
     DeletePlayer(player_id int) error
@@ -31,32 +31,16 @@ type Player struct {
     Email string
     Email_md5 string
     Tagline string
-    Team int
-}
-
-type PlayerDisplay struct {
-    Id int
-    Name string
-    Email string
-    Email_md5 string
-    Tagline string
+    Team_id int
     Team string
 }
 
 type Game struct {
     Id int
-    OffenderA int
-    DefenderA int
-    OffenderB int
-    DefenderB int
-    ScoreA int
-    ScoreB int
-    Winner string
-    Timestamp time.Time
-}
-
-type GameDisplay struct {
-    Id int
+    OffenderA_id int
+    DefenderA_id int
+    OffenderB_id int
+    DefenderB_id int
     OffenderA string
     DefenderA string
     OffenderB string
