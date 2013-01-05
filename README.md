@@ -7,8 +7,6 @@ Webapp to track foosball things.
 
 Todo (for v1.0)
 ---------------
-- backup db functionality
-    - copy file somewhere else (dropbox?)
 - Implement basic rankings
 
 
