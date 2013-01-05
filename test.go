@@ -76,7 +76,7 @@ func printer(c chan string) {
     }
 }
 
-func main() {
+func not_main() {
     fmt.Println("Hello, 世界")
 
     var c chan string = make(chan string, 4)
