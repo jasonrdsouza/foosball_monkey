@@ -1,14 +1,14 @@
-// +build !appengine
+// +build appengine
+
 package main
 
 import (
     "fmt"
     "net/http"
-    "github.com/jasonrdsouza/foosball_monkey/datastore"
 )
 
 // Change this to use different underlying datastore
-var database = datastore.Sqlite3DataHandler{}
+var database = datastore.AppengineDataHandler{}
 var db = datastore.FoosballMonkeyDataHandler(&database)
 
 func createNewDB(db_name string) {
@@ -27,7 +27,7 @@ func connectToDB(db_name string) {
     }
 }
 
-func main() {
+func init() {
     //createNewDB("foosball_monkey_datastore.db")  //uncomment this to remake the database
     connectToDB("foosball_monkey_datastore.db")
 
@@ -41,7 +41,4 @@ func main() {
     http.Handle("/img/", http.StripPrefix("/img/", http.FileServer(http.Dir("img"))))
 
     http.Handle("/", r)
-    if err := http.ListenAndServe(":8080", nil); err != nil {
-        panic(err)
-    }
 }
